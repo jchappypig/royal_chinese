@@ -1,5 +1,7 @@
 require 'spec_helper'
 
-describe "home/index.html.haml" do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe "index", type: :request do
+  it "should show menu" do
+    pending "Not really know how to setup capybara test"
+  end
 end
