@@ -17,6 +17,14 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'devise'
+gem 'simple_form'
+gem 'thin'
+gem 'cancan'
+gem 'haml-rails'
+gem 'will_paginate'
+gem 'factory_girl_rails'
+gem 'faker'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -33,4 +41,9 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'heroku'
 end
