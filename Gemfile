@@ -35,4 +35,5 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'heroku'
+  gem 'capybara'
 end
