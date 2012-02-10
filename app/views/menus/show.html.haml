@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @menu.name
+%p
+  %b Category:
+  = @menu.category
+%p
+  %b Price:
+  = @menu.price
+%p
+  %b Dish type:
+  = @menu.dish_type
+%p
+  %b Is vagetarian:
+  = @menu.is_vagetarian
+
+= link_to 'Edit', edit_menu_path(@menu)
+\|
+= link_to 'Back', menus_path

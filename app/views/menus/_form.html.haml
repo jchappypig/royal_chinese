@@ -1,0 +1,12 @@
+= simple_form_for(@menu) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :name
+    = f.input :category
+    = f.input :price
+    = f.input :dish_type
+    = f.input :is_vagetarian
+
+  .actions
+    = f.button :submit
