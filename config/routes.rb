@@ -1,6 +1,8 @@
 RoyalChinese::Application.routes.draw do
 
   root to: 'home#index'
+  get 'about_us',  to: 'home#about_us'
+  get 'contact_us',  to: 'home#contact_us'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
