@@ -8,7 +8,5 @@ describe Menu do
     it {should validate_presence_of(:category)}
     it {should validate_presence_of(:price)}
     it {should validate_presence_of(:is_vegetarian)}
-
   end
-
 end
