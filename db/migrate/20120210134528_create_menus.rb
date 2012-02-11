@@ -5,7 +5,7 @@ class CreateMenus < ActiveRecord::Migration
       t.string :category
       t.float :price
       t.string :dish_type
-      t.boolean :is_vagetarian
+      t.boolean :is_vegetarian
 
       t.timestamps
     end

@@ -153,6 +153,7 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
+    shoulda (2.11.3)
     simple_form (1.5.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -199,6 +200,7 @@ DEPENDENCIES
   rails (= 3.2.0)
   rspec-rails
   sass-rails (~> 3.2.3)
+  shoulda
   simple_form
   thin
   turn (~> 0.8.3)

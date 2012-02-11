@@ -25,6 +25,7 @@ gem 'pg'
 group :test do
   gem 'turn', '~> 0.8.3', :require => false
   gem 'rspec-rails'
+  gem 'shoulda'
   gem 'capybara'
 end
 

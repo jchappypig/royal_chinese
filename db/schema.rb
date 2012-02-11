@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20120210134528) do
     t.string   "category"
     t.float    "price"
     t.string   "dish_type"
-    t.boolean  "is_vagetarian"
+    t.boolean  "is_vegetarian"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
