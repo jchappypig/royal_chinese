@@ -28,6 +28,10 @@ group :test do
   gem 'shoulda'
   gem 'capybara'
   gem 'spork'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'growl'
 end
 
 group :test, :development do
