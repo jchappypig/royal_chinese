@@ -1,5 +1,7 @@
 RoyalChinese::Application.routes.draw do
 
+  devise_for :users
+
   resources :menus
 
   root to: 'home#index'
