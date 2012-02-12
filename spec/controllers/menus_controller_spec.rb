@@ -38,7 +38,7 @@ describe MenusController do
     put :update, id: @menu, menu: @menu.attributes
     response.should redirect_to menu_path(assigns(:menu))
   end
-  #
+
   it "should destroy menu" do
     Menu.count.should == 1
     delete :destroy, id: @menu
