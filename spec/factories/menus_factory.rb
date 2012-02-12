@@ -4,6 +4,5 @@ FactoryGirl.define do
     category "Meat"
     price 1.5
     dish_type "Hotpot"
-    is_vegetarian false
   end
 end

@@ -1,49 +1,49 @@
 require 'spec_helper'
 
-class MenusControllerSpec < ActionController::TestCase
-  setup do
-    @menu = menus(:one)
+describe MenusController do
+  before :each do
+    @menu = Factory(:menu)
   end
 
-  test "should get index" do
+  it "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:menus)
+    response.should be_success
+    assigns(:menus).should_not be_nil
   end
 
-  test "should get new" do
+  it "should get new" do
     get :new
-    assert_response :success
+    response.should be_success
   end
 
-  test "should create menu" do
-    assert_difference('Menu.count') do
-      post :create, menu: @menu.attributes
-    end
+  it "should create menu" do
+    Menu.count.should == 1
+    post :create, menu: @menu.attributes
+    Menu.count.should == 2
 
-    assert_redirected_to menu_path(assigns(:menu))
+    response.should redirect_to menu_path(assigns(:menu))
   end
 
-  test "should show menu" do
+  it "should show menu" do
     get :show, id: @menu
-    assert_response :success
+    response.should be_success
   end
 
-  test "should get edit" do
+  it "should get edit" do
     get :edit, id: @menu
-    assert_response :success
+    response.should be_success
   end
 
-  test "should update menu" do
+  it "should update menu" do
     put :update, id: @menu, menu: @menu.attributes
-    assert_redirected_to menu_path(assigns(:menu))
+    response.should redirect_to menu_path(assigns(:menu))
   end
+  #
+  it "should destroy menu" do
+    Menu.count.should == 1
+    delete :destroy, id: @menu
+    Menu.count.should == 0
 
-  test "should destroy menu" do
-    assert_difference('Menu.count', -1) do
-      delete :destroy, id: @menu
-    end
-
-    assert_redirected_to menus_path
+    response.should redirect_to menus_path
   end
 end
