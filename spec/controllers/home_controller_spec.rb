@@ -3,24 +3,39 @@ require 'spec_helper'
 describe HomeController do
 
   describe "GET 'index'" do
-    it "returns http success" do
+    before :each do
       get 'index'
-      response.should be_success
     end
+
+    specify { response.should be_success }
+    specify { assigns(:title).should == "Home" }
   end
 
-  describe "GET 'about_us'" do
-    it "returns http success" do
-      get 'about_us'
-      response.should be_success
+  describe "GET 'menu'" do
+    before :each do
+      get 'menu'
     end
+
+    specify { response.should be_success }
+    specify { assigns(:title).should == "Menu" }
   end
 
   describe "GET 'contact_us'" do
-    it "returns http success" do
+    before :each do
       get 'contact_us'
-      response.should be_success
     end
+
+    specify { response.should be_success }
+    specify { assigns(:title).should == "Contact Us" }
+  end
+
+  describe "GET 'about_us'" do
+    before :each do
+      get 'about_us'
+    end
+
+    specify { response.should be_success }
+    specify { assigns(:title).should == "About Us" }
   end
 
 end

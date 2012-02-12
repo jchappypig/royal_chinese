@@ -1,17 +1,17 @@
 class HomeController < ApplicationController
   def index
-    @title = "Royal Chinese Restaurant | Home"
+    @title = "Home"
   end
 
   def menu
-    @title = "Royal Chinese Restaurant | Menu"
+    @title = "Menu"
   end
 
   def contact_us
-    @title = "Royal Chinese Restaurant | Contact Us"
+    @title = "Contact Us"
   end
 
   def about_us
-    @title = "Royal Chinese Restaurant | About Us"
+    @title = "About Us"
   end
 end
