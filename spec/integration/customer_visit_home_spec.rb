@@ -14,16 +14,19 @@ describe "customer visit home page", type: :request do
   it "should be able to visit menu" do
     click_on "Our Menu"
     page.current_path.should == our_menu_path
+    page.should have_selector("title", content: "Our Menu")
   end
 
   it "should be able to visit contact us" do
     click_on "Contact Us"
     page.current_path.should == contact_us_path
+    page.should have_selector("title", content: "Contact Us")
   end
 
   it "should be able to visit about us" do
     click_on "About Us"
     page.current_path.should == about_us_path
+    page.should have_selector("title", content: "About Us")
   end
 
 end
