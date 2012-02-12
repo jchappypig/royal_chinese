@@ -11,13 +11,13 @@ describe HomeController do
     specify { assigns(:title).should == "Home" }
   end
 
-  describe "GET 'menu'" do
+  describe "GET 'our menu'" do
     before :each do
-      get 'menu'
+      get 'our_menu'
     end
 
     specify { response.should be_success }
-    specify { assigns(:title).should == "Menu" }
+    specify { assigns(:title).should == "Our Menu" }
   end
 
   describe "GET 'contact_us'" do

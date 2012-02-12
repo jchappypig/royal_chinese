@@ -13,7 +13,7 @@ describe "customer visit home page", type: :request do
 
   it "should be able to visit menu" do
     click_on "Our Menu"
-    page.current_path.should == menu_path
+    page.current_path.should == our_menu_path
   end
 
   it "should be able to visit contact us" do

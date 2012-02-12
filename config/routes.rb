@@ -7,7 +7,7 @@ RoyalChinese::Application.routes.draw do
   root to: 'home#index'
   get 'about_us',  to: 'home#about_us'
   get 'contact_us',  to: 'home#contact_us'
-  get 'menu', to: 'menus#index'
+  get 'our_menu', to: 'home#our_menu'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

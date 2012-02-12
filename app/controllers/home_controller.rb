@@ -3,8 +3,8 @@ class HomeController < ApplicationController
     @title = "Home"
   end
 
-  def menu
-    @title = "Menu"
+  def our_menu
+    @title = "Our Menu"
   end
 
   def contact_us
