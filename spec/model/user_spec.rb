@@ -17,13 +17,18 @@ describe User do
 
   describe "validate uniqueness" do
     before :each do
-      @user = Factory.build(:user)
+      @user = Factory.build(:user, email: "email@email.com")
     end
 
-    it "should not allow duplicate email" do
+    it "should not allow duplicate email regardless case" do
       @user.save.should be_true
-      another_user = Factory.build(:user, email: @user.email)
+      another_user = Factory.build(:user, email: @user.email.capitalize)
       another_user.should_not be_valid
+    end
+
+    it "should allow different email" do
+      another_user = Factory.build(:user, email: "another_email@email.com")
+      another_user.should be_valid
     end
   end
 end

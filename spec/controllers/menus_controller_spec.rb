@@ -36,6 +36,7 @@ describe MenusController do
       post :create, menu: Factory.build(:menu).attributes
       Menu.count.should == 1
 
+      flash[:notice].should == 'Menu was successfully created.'
       response.should redirect_to menu_path(assigns(:menu))
     end
 
@@ -68,6 +69,7 @@ describe MenusController do
 
       Menu.find_by_id(@menu).name.should == "new name"
 
+      flash[:notice].should == 'Menu was successfully updated.'
       response.should redirect_to menu_path(assigns(:menu))
     end
 
