@@ -1,0 +1,5 @@
+- Fix the bug that user create take a long time.
+
+- Fix the bug that console always print out 
+	Started GET "/assets/registrations.css?body=1" for 127.0.0.1 at 2012-02-13 08:03:42 +1100
+	Served asset /registrations.css - 304 Not Modified (0ms)

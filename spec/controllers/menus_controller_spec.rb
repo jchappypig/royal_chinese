@@ -81,8 +81,8 @@ describe MenusController do
   end
 
   describe "Delete 'destroy'" do
-    menu = Factory(:menu)
     it "should destroy menu" do
+      menu = Factory(:menu)
       Menu.count.should == 1
       delete :destroy, id: menu
       Menu.count.should == 0
