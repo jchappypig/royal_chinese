@@ -17,13 +17,13 @@ describe User do
 
   describe "validate uniqueness" do
     before :each do
-      pending "Create a user take a long time, need to look into this."
+      @user = Factory.build(:user)
     end
 
     it "should not allow duplicate email" do
-      #@user.save.should be_true
-      #another_user = Factory.build(:user, email: @user.email)
-      #another_user.should_not be_valid
+      @user.save.should be_true
+      another_user = Factory.build(:user, email: @user.email)
+      another_user.should_not be_valid
     end
   end
 end
