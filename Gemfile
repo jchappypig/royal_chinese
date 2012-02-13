@@ -17,14 +17,14 @@ gem 'thin'
 gem 'cancan'
 gem 'haml-rails'
 gem 'will_paginate'
-gem 'factory_girl_rails'
-gem 'faker'
 gem 'pg'
 
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'shoulda'
   gem 'capybara'
   gem 'spork'

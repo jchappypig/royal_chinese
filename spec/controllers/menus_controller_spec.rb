@@ -1,49 +1,93 @@
 require 'spec_helper'
 
 describe MenusController do
-  before :each do
-    @menu = Factory(:menu)
+  describe "GET 'index'" do
+    before :each do
+      Factory(:menu)
+      get :index
+    end
+
+    specify { response.should be_success }
+    specify { assigns(:menus).count.should == 1 }
   end
 
-  it "should get index" do
-    get :index
-    response.should be_success
-    assigns(:menus).should_not be_nil
+  describe "GET 'new'" do
+    before :each do
+      get :new
+    end
+
+    specify { response.should be_success }
+    specify { assigns(:menu).should be_kind_of(Menu) }
   end
 
-  it "should get new" do
-    get :new
-    response.should be_success
+  describe "GET 'show'" do
+    before :each do
+      @menu = Factory(:menu)
+      get :show, id: @menu
+    end
+
+    specify { response.should be_success }
+    specify { assigns(:menu) == @menu }
   end
 
-  it "should create menu" do
-    Menu.count.should == 1
-    post :create, menu: @menu.attributes
-    Menu.count.should == 2
+  describe "Post 'create'" do
+    it "should save menu if valid" do
+      Menu.count.should == 0
+      post :create, menu: Factory.build(:menu).attributes
+      Menu.count.should == 1
 
-    response.should redirect_to menu_path(assigns(:menu))
+      response.should redirect_to menu_path(assigns(:menu))
+    end
+
+    it "should not save menu if invalid" do
+      Menu.count.should == 0
+      post :create, menu: Factory.build(:menu, name: "").attributes
+      Menu.count.should == 0
+
+      response.should render_template :new
+    end
   end
 
-  it "should show menu" do
-    get :show, id: @menu
-    response.should be_success
+  describe "GET 'edit'" do
+    before :each do
+      @menu = Factory(:menu)
+      get :edit, id: @menu
+    end
+
+    specify { response.should be_success }
+    specify { assigns(:menu).should == @menu }
   end
 
-  it "should get edit" do
-    get :edit, id: @menu
-    response.should be_success
+  describe "Put 'update'" do
+    before :each do
+      @menu = Factory(:menu)
+    end
+
+    it "should update menu if valid" do
+      put :update, id: @menu, menu: @menu.attributes.merge(name: "new name")
+
+      Menu.find_by_id(@menu).name.should == "new name"
+
+      response.should redirect_to menu_path(assigns(:menu))
+    end
+
+    it "should not update menu if invalid" do
+      put :update, id: @menu, menu: @menu.attributes.merge(name: "")
+
+      Menu.find_by_id(@menu).name.should == @menu.name
+
+      response.should render_template :edit
+    end
   end
 
-  it "should update menu" do
-    put :update, id: @menu, menu: @menu.attributes
-    response.should redirect_to menu_path(assigns(:menu))
-  end
+  describe "Delete 'destroy'" do
+    menu = Factory(:menu)
+    it "should destroy menu" do
+      Menu.count.should == 1
+      delete :destroy, id: menu
+      Menu.count.should == 0
 
-  it "should destroy menu" do
-    Menu.count.should == 1
-    delete :destroy, id: @menu
-    Menu.count.should == 0
-
-    response.should redirect_to menus_path
+      response.should redirect_to menus_path
+    end
   end
 end
