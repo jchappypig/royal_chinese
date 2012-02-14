@@ -7,17 +7,35 @@
   = csrf_meta_tags
 %body
   .container
-    .navbar
-      .navbar-inner
-        .container
-          %ul.nav
-            %li.active
-              = link_to "Home", root_path
-            %li
-              = link_to "Our Menu", our_menu_path
-            %li
-              = link_to "About Us", about_us_path
-            %li
-              = link_to "Contact Us", contact_us_path
+    .navbar.navbar-inner.container
+      %ul.nav
+        %li.active
+          = link_to "Home", root_path
+        %li
+          = link_to "Our Menu", our_menu_path
+        %li
+          = link_to "About Us", about_us_path
+        %li
+          = link_to "Contact Us", contact_us_path
 
+      %ul.nav.pull-right
+        - if user_signed_in?
+          %li
+            = link_to "Logout", destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to "Sign in", new_user_session_path
+          %li
+            = link_to "Sign up", new_user_registration_path
+
+
+
+    = unless alert.nil?
+      .alert
+        .alert-error
+          = alert
+    = unless notice.nil?
+      .alert
+        .alert-error
+          = notice unless notice.nil?
     = yield
