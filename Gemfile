@@ -27,6 +27,7 @@ group :test do
   gem 'faker'
   gem 'shoulda'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'spork'
   gem 'guard-spork'
   gem 'guard-rspec'

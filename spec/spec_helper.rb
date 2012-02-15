@@ -43,6 +43,8 @@ Spork.prefork do
     config.infer_base_class_for_anonymous_controllers = false
   end
 
+  Capybara.javascript_driver = :webkit
+
 end
 
 Spork.each_run do
