@@ -29,11 +29,9 @@
             = link_to "Sign up", new_user_registration_path
 
     = unless alert.nil?
-      .alert
-        .alert-error
-          = alert
+      .alert.alert-error
+        = alert
     = unless notice.nil?
-      .alert
-        .alert-error
-          = notice unless notice.nil?
+      .alert.alert-success
+        = notice
     = yield
