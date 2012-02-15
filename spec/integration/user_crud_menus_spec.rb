@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "user CRUD menus", js: true, driver: :webkit do
+describe "user CRUD menus", js: true do
 
   before :each do
     visit menus_path
