@@ -1,12 +1,9 @@
 require 'spec_helper'
 
-describe "user CRUD menus", js: true do
-
-  before :each do
-    visit menus_path
-  end
+describe "user CRUD menus" do
 
   it "should allow user create, updated, delete menus." do
+    visit menus_path
     page.should have_content "Listing menus"
     click_link "New Menu"
 
@@ -30,7 +27,5 @@ describe "user CRUD menus", js: true do
 
     page.should have_content("Cabbage")
     click_link "Destroy"
-    page.evaluate_script("window.confirm = function() { return true; }")
-
   end
 end

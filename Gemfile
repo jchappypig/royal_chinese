@@ -28,6 +28,7 @@ group :test do
   gem 'shoulda'
   gem 'capybara'
   gem 'capybara-webkit'
+  gem 'email_spec'
   gem 'spork'
   gem 'guard-spork'
   gem 'guard-rspec'
