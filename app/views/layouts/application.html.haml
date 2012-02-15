@@ -28,10 +28,10 @@
           %li
             = link_to "Sign up", new_user_registration_path
 
-    = unless alert.nil?
+    - unless alert.nil?
       .alert.alert-error
         = alert
-    = unless notice.nil?
+    - unless notice.nil?
       .alert.alert-success
         = notice
     = yield
