@@ -1,27 +1,5 @@
 %h1 Listing menus
-
-%table
-  %tr
-    %th Name
-    %th Category
-    %th Price
-    %th Dish type
-    %th Is vagetarian
-    %th
-    %th
-    %th
-
-  - @menus.each do |menu|
-    %tr
-      %td= menu.name
-      %td= menu.category
-      %td= menu.price
-      %td= menu.dish_type
-      %td= menu.is_vegetarian
-      %td= link_to 'Show', menu
-      %td= link_to 'Edit', edit_menu_path(menu)
-      %td= link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete
-
+= table_for(@menus) do |table|
+  = table.data  :actions => :all
 %br
-
 = link_to 'New Menu', new_menu_path

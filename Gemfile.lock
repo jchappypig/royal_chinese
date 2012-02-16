@@ -178,6 +178,8 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    tabletastic (0.2.3)
+      activesupport (~> 3.0)
     term-ansicolor (1.0.7)
     thin (1.3.1)
       daemons (>= 1.0.9)
@@ -226,6 +228,7 @@ DEPENDENCIES
   shoulda
   simple_form
   spork
+  tabletastic
   thin
   turn (~> 0.8.3)
   uglifier (>= 1.0.3)

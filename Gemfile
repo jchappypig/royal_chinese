@@ -11,12 +11,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'devise'
 gem 'simple_form'
 gem 'thin'
 gem 'cancan'
 gem 'haml-rails'
 gem 'will_paginate'
+gem 'tabletastic'
+gem 'devise'
 gem 'pg'
 
 
