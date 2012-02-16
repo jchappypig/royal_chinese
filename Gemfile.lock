@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: f19393cfff75d083f51ef6f09d33ff3473244cd4
+  specs:
+    paperclip (2.6.0)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -46,6 +56,7 @@ GEM
       json
     childprocess (0.2.3)
       ffi (~> 1.0.6)
+    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -220,6 +231,7 @@ DEPENDENCIES
   haml-rails
   heroku
   jquery-rails
+  paperclip!
   pg
   rails (= 3.2.0)
   rb-fsevent (= 0.4.3.1)

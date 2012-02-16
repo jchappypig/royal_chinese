@@ -19,7 +19,7 @@ gem 'will_paginate'
 gem 'tabletastic'
 gem 'devise'
 gem 'pg'
-
+gem 'paperclip', '~> 2.6.0'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false
