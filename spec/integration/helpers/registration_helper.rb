@@ -6,6 +6,8 @@ module RegistrationHelper
     options[:password] ||= "123456"
     options[:password_confirmation] ||= "123456"
 
+    Factory(:email_white_list, email: options[:email])
+
     visit root_path
     click_link "Sign up"
 
@@ -15,5 +17,16 @@ module RegistrationHelper
     fill_in "user_password", with: "123456"
     fill_in "user_password_confirmation", with: "123456"
     click_button "Sign up"
+  end
+
+  def sign_in(options={})
+    visit root_path
+    click_link "Sign in"
+    options[:email] ||= "jchappypig@hotmail.com"
+    options[:password] ||= "123456"
+
+    fill_in "user_email", with: "jchappypig@hotmail.com"
+    fill_in "user_password", with: "123456"
+    click_button "Sign in"
   end
 end

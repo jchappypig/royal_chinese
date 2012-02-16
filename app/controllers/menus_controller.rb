@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  skip_before_filter :authenticate_user!, only: [:show]
 
   def index
     @menus = Menu.all

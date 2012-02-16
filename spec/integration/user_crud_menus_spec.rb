@@ -1,8 +1,12 @@
 require 'spec_helper'
+require File.dirname(__FILE__) + '/helpers/registration_helper'
+
+include RegistrationHelper
 
 describe "user CRUD menus" do
 
   it "should allow user create, updated, delete menus." do
+    register
     visit menus_path
     page.should have_content "Listing menus"
     click_link "New Menu"
