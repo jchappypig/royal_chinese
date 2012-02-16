@@ -1,6 +1,7 @@
-class EmailWhiteList
+class EmailWhiteList < ActiveRecord::Base
+  validates :email, uniqueness: {case_sensitive: false}, presence: true
+
   def self.include?(email)
-    email_white_list = ["hhuang@thoughtworks.com", "airwomanzhy@hotmail.com", "jchappypig@hotmail.com"]
-    email_white_list.include? email
+    EmailWhiteList.find_by_email(email)
   end
 end
