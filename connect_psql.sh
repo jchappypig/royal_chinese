@@ -1,1 +1,1 @@
-ln -s /private/tmp/.s.PGSQL.5432 /var/pgsql_socket/
+ln -s /private/var/pgsql_socket/.s.PGSQL.5432 /tmp/
