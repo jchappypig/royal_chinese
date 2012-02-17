@@ -1,8 +1,10 @@
-= simple_form_for(@menu) do |f|
+= simple_form_for(@menu, validate: true, html: {multipart: true}) do |f|
   = f.error_notification
 
   .inputs
     = f.input :name
+    = image_tag @menu.image.url
+    = f.file_field :image
     = f.input :category
     = f.input :price
     = f.input :dish_type
