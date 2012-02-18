@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120216221301) do
+ActiveRecord::Schema.define(:version => 20120218105711) do
 
   create_table "email_white_lists", :force => true do |t|
     t.string   "email"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(:version => 20120216221301) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "is_valid",   :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "users", :force => true do |t|
