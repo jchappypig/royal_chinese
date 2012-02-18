@@ -3,7 +3,7 @@
 
   .inputs
     = f.input :name
-    = image_tag @menu.image.url
+    = image_tag @menu.image.url(:thumbnail)
     = f.file_field :image
     = f.input :category
     = f.input :price
