@@ -1,5 +1,9 @@
 %h1 Listing posts
 = table_for(@posts) do  |table|
-  = table.data  actions: :all
+  = table.data  actions: :all do
+    - table.cell(:title)
+    - table.cell(:content)
+    - table.cell(:is_valid)
+    - table.cell(:updated_at)
 %br
 = link_to 'New Post', new_post_path

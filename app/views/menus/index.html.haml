@@ -1,5 +1,10 @@
 %h1 Listing menus
 = table_for(@menus) do |table|
-  = table.data  :actions => :all
+  = table.data  :actions => :all do
+    - table.cell(:name)
+    - table.cell(:category)
+    - table.cell(:price)
+    - table.cell(:is_vegetarian)
+    - table.cell(:dish_type)
 %br
 = link_to 'New Menu', new_menu_path

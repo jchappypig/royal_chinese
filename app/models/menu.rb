@@ -2,6 +2,7 @@ class Menu < ActiveRecord::Base
   validates :name, presence: true
   validates :category, presence: true
   validates :price, presence: true
+  validates :dish_type, presence: true
 
   has_attached_file :image, styles: { thumbnail: '160x120>',  medium: '260x180>', large: '360x268>' },
                     default_url: '/assets/images/rails.png',

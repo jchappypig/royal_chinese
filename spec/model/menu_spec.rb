@@ -5,6 +5,7 @@ describe Menu do
     it {should validate_presence_of(:name)}
     it {should validate_presence_of(:category)}
     it {should validate_presence_of(:price)}
+    it {should validate_presence_of(:dish_type)}
 
     it { should have_attached_file(:image) }
     it { should validate_attachment_content_type(:image).
