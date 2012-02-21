@@ -11,6 +11,7 @@ class HomeController < ApplicationController
 
   def contact_us
     @title = "Contact Us"
+    @json = Address.all.to_gmaps4rails
   end
 
   def about_us

@@ -20,6 +20,7 @@ gem 'tabletastic'
 gem 'devise'
 gem 'pg'
 gem 'paperclip', '~> 2.6.0'
+gem 'gmaps4rails'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false

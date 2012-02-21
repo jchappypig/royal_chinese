@@ -7,4 +7,8 @@
 #== require jquery
 #== require jquery_ujs
 #== require bootstrap
+#== require gmaps4rails.bing
+#== require gmaps4rails.googlemaps
+#== require gmaps4rails.mapquest
+#== require gmaps4rails.openlayers
 #== require_tree .
