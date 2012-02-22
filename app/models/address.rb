@@ -1,7 +1,12 @@
 class Address < ActiveRecord::Base
   acts_as_gmappable
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
+
   def gmaps4rails_address
-    "35 Flinders Street, Wollongong, NSW 2500"
+    description
   end
 end

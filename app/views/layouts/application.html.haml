@@ -2,10 +2,10 @@
 %head
   %title
     Royal Chinese Restaurant | #{@title}
+  = yield :head
   = stylesheet_link_tag    "application"
   = javascript_include_tag "application"
   = csrf_meta_tags
-  = yield :head
 %body
   .container
     .navbar.navbar-inner.container
