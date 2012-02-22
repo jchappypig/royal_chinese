@@ -9,4 +9,8 @@ class Address < ActiveRecord::Base
   def gmaps4rails_address
     description
   end
+
+  def gmaps4rails_infowindow
+    name
+  end
 end
