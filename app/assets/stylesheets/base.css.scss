@@ -1,3 +1,6 @@
+$map-width: 600px;
+$map-height: 400px;
+
 body {
   font-size: 14px;
 }
@@ -6,6 +9,15 @@ table {
   font-size: 12px;
 }
 
-.map_container img {
-  max-width: none;
+.map_container {
+  width: $map-width;
+  img {
+    max-width: none;
+  }
+
+  .gmaps4rails_map {
+    width: $map-width;
+    height: $map-height;
+  }
+
 }
