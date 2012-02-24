@@ -1,12 +1,62 @@
 $map-width: 600px;
 $map-height: 400px;
+$bg-color-dark: #660000; 
+$bg-color-light: #cc3300;
+$default-font-color: #ffffff;
 
 body {
+  background-color: $bg-color-dark;
+  background-image: radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
+  background-image: -o-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
+  background-image: -moz-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
+  background-image: -webkit-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
+  background-image: -ms-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
+
   font-size: 14px;
+  color: $default-font-color;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  color: $default-font-color;
+}
+
+input, textarea, select, .uneditable-input {
+  height: auto;
 }
 
 table {
   font-size: 12px;
+}
+
+a {
+  color: $bg-color-light;
+
+  &:hover { color: $bg-color-dark; }
+}
+
+.header{
+  .logo {
+    margin-top: 18px;
+    display: inline-block;
+  }
+  .navbar.navbar-inner {
+    box-shadow: none;
+    background-image: none;
+    background-color: transparent;
+    width: auto;
+    margin-top: 45px;
+    font-size: 12px;
+    
+    a {
+      color: #ffffff;
+      background-color: transparent;
+      text-transform:uppercase;
+      &:hover {
+        color: #999;
+        background-color: transparent;
+      }
+    }
+  }
 }
 
 .map_container {
