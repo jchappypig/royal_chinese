@@ -3,7 +3,7 @@ class CreateFollowers < ActiveRecord::Migration
     create_table :followers do |t|
       t.string :name
       t.string :email
-      t.boolean :is_subscribe
+      t.boolean :is_subscribe, default: true
 
       t.timestamps
     end

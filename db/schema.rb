@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20120229070659) do
   create_table "followers", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.boolean  "is_subscribe"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.boolean  "is_subscribe", :default => true
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "menus", :force => true do |t|
