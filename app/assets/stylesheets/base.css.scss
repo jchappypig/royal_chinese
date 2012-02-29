@@ -12,8 +12,12 @@ body {
   background-image: -webkit-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
   background-image: -ms-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
 
-  font-size: 14px;
+  font-size: 13px;
   color: $default-font-color;
+}
+
+.cap {
+  text-transform: UPPERCASE;
 }
 
 h1, h2, h3, h4, h5, h6, label {
@@ -34,6 +38,25 @@ a {
   &:hover { color: $bg-color-dark; }
 }
 
+.footer {
+  margin-top: 40px;
+
+  .logo {
+    margin-top: 15px;
+  }
+
+  a {
+    color: #ffcc66;
+    &:hover { color: #999;; }
+  }
+
+  .copyright { color: #ffcc66 }
+}
+
+.container {
+  width: 960px;
+}
+
 .header{
   .logo {
     margin-top: 18px;
@@ -41,16 +64,14 @@ a {
   }
   .navbar.navbar-inner {
     box-shadow: none;
+    padding-right: 0px;
     background-image: none;
     background-color: transparent;
-    width: auto;
     margin-top: 45px;
-    font-size: 12px;
-    
+
     a {
       color: #ffffff;
       background-color: transparent;
-      text-transform:uppercase;
       &:hover {
         color: #999;
         background-color: transparent;
@@ -60,7 +81,8 @@ a {
 }
 
 .map_container {
-  width: $map-width;
+  width: $map-width; 
+  color: #000000;
   img {
     max-width: none;
   }

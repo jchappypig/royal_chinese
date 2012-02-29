@@ -1,6 +1,5 @@
-.span12
-  %h1 Contact Us
-  %p Find me in app/views/home/contact_us.html.haml
-  %p
-    = gmaps(:markers => {:data => @json}, :map_options => { :auto_adjust => true, auto_zoom: false, :zoom => 16 },
-            :last_map => true)
+%h1 Contact Us
+%p Find me in app/views/home/contact_us.html.haml
+%p
+  = gmaps(:markers => {:data => @json}, :map_options => { :auto_adjust => true, auto_zoom: false, :zoom => 16 },
+          :last_map => true)
