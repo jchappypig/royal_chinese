@@ -21,6 +21,7 @@ gem 'devise'
 gem 'pg'
 gem 'paperclip', '~> 2.6.0'
 gem 'gmaps4rails'
+gem 'email_validator', :require => 'email_validator/strict'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false

@@ -8,8 +8,19 @@ describe EmailWhiteList do
   it {should validate_uniqueness_of(:email).case_insensitive}
   it {should validate_presence_of(:email)}
 
+  describe "email validation" do
+    it { should allow_value('jchappypig@hotmail.com').for(:email) }
+    it { should allow_value('hhuang@thoughtworks.com').for(:email) }
+    it { should allow_value('UPPERCASE@HOTMAIL.COM').for(:email) }
+    it { should_not allow_value('hhuang@hotmail').for(:email) }
+    it { should_not allow_value('hhuang.com.hotmail').for(:email) }
+    it { should_not allow_value('@com.hotmail').for(:email) }
+    it { should_not allow_value('~~@@@@@@hotmail.com').for(:email)}
+    it { should_not allow_value('^^&&@hotmail.com').for(:email)}
+  end
+
   describe "#include?" do
-    specify {EmailWhiteList.include?(@email_white_list.email).should be_true}
-    specify {EmailWhiteList.include?("random_mail@hotmail.com").should be_false}
+    specify {EmailWhiteList.find_by_email_ignore_case(@email_white_list.email).should_not be_nil}
+    specify {EmailWhiteList.find_by_email_ignore_case('random_mail@hotmail.com').should be_nil}
   end
 end

@@ -8,7 +8,7 @@ describe Users::RegistrationsController do
   let(:user) {Factory.build(:user)}
 
   it "should allow user to register if in the white list" do
-    EmailWhiteList.stub(:include?).and_return(true)
+    EmailWhiteList.stub(:find_by_email_ignore_case).and_return(true)
     post :create, user: Factory.attributes_for(:user)
     flash[:notice].should == "Welcome! You have signed up successfully."
   end
