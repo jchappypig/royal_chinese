@@ -1,12 +1,16 @@
 require 'spec_helper'
 require File.dirname(__FILE__) + '/helpers/registration_helper'
 
-include RegistrationHelper
+include Warden::Test::Helpers
 
 describe "user CRUD posts" do
+  before :each do
+    Warden.test_mode!
+    user = Factory(:user)
+    login_as(user, scope: :user)
+  end
 
   it "should allow user create, updated, delete posts." do
-    register
     visit posts_path
     page.should have_content "Listing posts"
     click_link "New Post"
@@ -35,5 +39,9 @@ describe "user CRUD posts" do
 
     page.should have_content("Cabbage")
     click_link "Destroy"
+  end
+
+  after :each do
+    Warden.test_reset!
   end
 end
