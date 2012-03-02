@@ -1,8 +1,9 @@
 $map-width: 600px;
 $map-height: 400px;
-$bg-color-dark: #660000; 
+$bg-color-dark: #660000;
 $bg-color-light: #cc3300;
 $default-font-color: #ffffff;
+$accent-color: #ffcc66;
 
 body {
   background-color: $bg-color-dark;
@@ -35,7 +36,9 @@ table {
 a {
   color: $bg-color-light;
 
-  &:hover { color: $bg-color-dark; }
+  &:hover {
+    color: $bg-color-dark;
+  }
 }
 
 .footer {
@@ -46,18 +49,30 @@ a {
   }
 
   a {
-    color: #ffcc66;
-    &:hover { color: #999;; }
+    @extend .accent;
+    &:hover {
+      color: #999;;
+    }
   }
+}
 
-  .copyright { color: #ffcc66 }
+.accent {
+  color: $accent-color;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 .container {
   width: 960px;
 }
 
-.header{
+.header {
   .logo {
     margin-top: 18px;
     display: inline-block;
@@ -81,7 +96,7 @@ a {
 }
 
 .map_container {
-  width: $map-width; 
+  width: $map-width;
   color: #000000;
   img {
     max-width: none;

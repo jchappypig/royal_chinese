@@ -1,2 +1,10 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+%h3.accent Royal Chinese Newsletter - subscribe to receive our latest news
+= simple_form_for(@follower) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :name
+    = f.input :email
+
+  .actions
+    = f.button :submit, "Subscribe", class: "btn"

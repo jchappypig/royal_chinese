@@ -5,6 +5,10 @@ class FollowersController < ApplicationController
     @follower = Follower.new
     render "home/index"
   end
+
+  def subscribe
+    new
+  end
   #
   #def create
 end
