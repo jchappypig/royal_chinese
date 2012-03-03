@@ -5,9 +5,9 @@ RoyalChinese::Application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations', :sessions => 'users/sessions' }
 
   resources :menus
-  resource :followers
+  resource :followers, only: [:create]
 
-  root to: 'followers#subscribe'
+  root to: 'followers#new'
   get 'about_us',  to: 'home#about_us'
   get 'contact_us',  to: 'home#contact_us'
   get 'our_menu', to: 'home#our_menu'
