@@ -19,8 +19,15 @@ describe EmailWhiteList do
     it { should_not allow_value('^^&&@hotmail.com').for(:email)}
   end
 
-  describe "#include?" do
-    specify {EmailWhiteList.find_by_email_ignore_case(@email_white_list.email).should_not be_nil}
-    specify {EmailWhiteList.find_by_email_ignore_case('random_mail@hotmail.com').should be_nil}
+  describe "#find_by_email_ignore_case" do
+
+    it "should be able to find the white list by email ignore case" do
+      EmailWhiteList.find_by_email_ignore_case(@email_white_list.email).should == @email_white_list
+      EmailWhiteList.find_by_email_ignore_case(@email_white_list.email.capitalize).should == @email_white_list
+    end
+
+    it "should not find the white list if the email address is different" do
+      EmailWhiteList.find_by_email_ignore_case("random@email.com").should_not == @email_white_list
+    end
   end
 end

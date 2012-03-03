@@ -14,7 +14,22 @@ describe Follower do
       Factory(:follower)
     end
 
-    it { should validate_uniqueness_of(:email) }
+    it { should validate_uniqueness_of(:email).case_insensitive }
+  end
+
+  describe "#find_by_email_ignore_case" do
+    before :each do
+      @follower = Factory(:follower, email: "jchappypig@hotmail.com")
+    end
+
+    it "should be able to find the follower by email ignore case" do
+      Follower.find_by_email_ignore_case("jchappypig@hotmail.com").should == @follower
+      Follower.find_by_email_ignore_case("JChappypig@hotmail.com").should == @follower
+    end
+
+    it "should not find the white list if the email address is different" do
+      Follower.find_by_email_ignore_case("random@email.com").should_not == @follower
+    end
   end
 
 end
