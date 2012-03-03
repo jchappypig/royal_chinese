@@ -1,5 +1,9 @@
 class FollowersController < ApplicationController
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, except: [:index]
+
+  def index
+    @followers = Follower.all
+  end
 
   def new
     @follower = Follower.new
