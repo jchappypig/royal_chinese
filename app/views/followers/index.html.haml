@@ -1,3 +1,6 @@
 %h1 Listing followers
-= table_for(@followers) do  |table|
-  = table.data
+- unless @followers.blank?
+  = table_for(@followers) do  |table|
+    = table.data
+- else
+  %p Sorry, no followers found.

@@ -95,6 +95,10 @@ a {
   }
 }
 
+.table-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th {
+  background-color: $bg-color-dark;
+}
+
 .map_container {
   width: $map-width;
   color: #000000;

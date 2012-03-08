@@ -1,5 +1,4 @@
 require 'spec_helper'
-require File.dirname(__FILE__) + '/helpers/registration_helper'
 
 include Warden::Test::Helpers
 
@@ -13,6 +12,8 @@ describe "user CRUD menus" do
   it "should allow user create, updated, delete menus." do
     visit menus_path
     page.should have_content "Listing menus"
+    page.should have_content "Sorry, no menus found."
+    page.should_not have_selector("table#menus")
     click_link "New Menu"
 
     page.should have_content "New menu"
@@ -40,6 +41,7 @@ describe "user CRUD menus" do
 
     click_link "Back"
     page.current_path.should == menus_path
+    page.should have_selector("table#menus")
 
     page.should have_content("Cabbage")
     click_link "Destroy"

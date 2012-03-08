@@ -1,6 +1,4 @@
 require 'spec_helper'
-require File.dirname(__FILE__) + '/helpers/registration_helper'
-
 include Warden::Test::Helpers
 
 describe "user CRUD posts" do
@@ -13,6 +11,8 @@ describe "user CRUD posts" do
   it "should allow user create, updated, delete posts." do
     visit posts_path
     page.should have_content "Listing posts"
+    page.should have_content "Sorry, no posts found."
+    page.should_not have_selector("table#posts")
     click_link "New Post"
 
     page.should have_content "New post"
@@ -36,6 +36,7 @@ describe "user CRUD posts" do
 
     click_link "Back"
     page.current_path.should == posts_path
+    page.should have_selector("table#posts")
 
     page.should have_content("Cabbage")
     click_link "Destroy"
