@@ -13,8 +13,11 @@ class FollowersController < ApplicationController
   def create
     @follower = Follower.new(params[:follower])
 
-    if Follower.find_by_email_ignore_case(@follower.email) || @follower.save
+    if Follower.find_by_email_ignore_case(@follower.email)
       redirect_to root_path, notice: 'You have successfully subscribed to our newsletter.'
+    elsif @follower.save
+      redirect_to root_path, notice: 'You have successfully subscribed to our newsletter.'
+      CustomerMailer.thank_you_subscribing(@follower).deliver
     else
       render 'home/index'
     end

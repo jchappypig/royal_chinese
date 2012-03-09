@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe FollowersController do
+  include Shoulda::Matchers::ActionMailer
 
   context "not authenticated user" do
     it "should not allow user access'" do
@@ -18,13 +19,32 @@ describe FollowersController do
     end
 
     describe "Follower 'create'" do
-      it "should save follower if valid" do
-        Follower.count.should == 0
-        post :create, follower: Factory.build(:follower).attributes
+      it "should ignore create request but show subscribe successfully if already subscribed before" do
+        follower = Factory.build(:follower)
+        follower.save!
+        Follower.count.should == 1
+
+        post :create, follower: follower.attributes
         Follower.count.should == 1
 
         flash[:notice].should == 'You have successfully subscribed to our newsletter.'
         response.should redirect_to root_path
+      end
+
+      it "should save follower and send follower thank you letter if valid" do
+        Follower.count.should == 0
+        follower = Factory.build(:follower)
+        post :create, follower: follower.attributes
+        Follower.count.should == 1
+
+        flash[:notice].should == 'You have successfully subscribed to our newsletter.'
+        response.should redirect_to root_path
+
+        should have_sent_email.from('royal_chinese@hotmail.com')
+        should have_sent_email.to(follower.email)
+        should have_sent_email.with_subject('Thank you for subscribing')
+        should have_sent_email.with_body(/#{follower.name}/)
+        should have_sent_email.with_body(/Thank you for subscribing/)
       end
 
       it "should not save follower if invalid" do
