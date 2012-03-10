@@ -1,6 +1,6 @@
 %h1 Listing followers
 - unless @followers.blank?
   = table_for(@followers) do  |table|
-    = table.data
+    = table.data :actions => [:destroy]
 - else
   %p Sorry, no followers found.
