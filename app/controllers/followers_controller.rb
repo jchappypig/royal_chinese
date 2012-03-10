@@ -1,5 +1,5 @@
 class FollowersController < ApplicationController
-  skip_before_filter :authenticate_user!, except: [:index]
+  skip_before_filter :authenticate_user!, only: [:new, :create]
 
   def index
     @followers = Follower.all
@@ -21,5 +21,12 @@ class FollowersController < ApplicationController
     else
       render 'home/index'
     end
+  end
+
+  def destroy
+    @follower = Follower.find(params[:id])
+    @follower.destroy
+
+    redirect_to followers_url
   end
 end

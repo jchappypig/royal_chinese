@@ -7,6 +7,10 @@ describe FollowersController do
     it "should not allow user access'" do
       get :index
       should_deny_access
+
+      follower = Factory(:follower)
+      delete :destroy, id: follower
+      should_deny_access
     end
 
     describe "GET 'new'" do
@@ -76,6 +80,17 @@ describe FollowersController do
         get :index
         response.should be_success
         assigns(:followers).count.should == 1
+      end
+    end
+
+    describe "Delete 'destroy'" do
+      it "should destroy follower" do
+        follower = Factory(:follower)
+        Follower.count.should == 1
+        delete :destroy, id: follower
+        Follower.count.should == 0
+
+        response.should redirect_to followers_path
       end
     end
 

@@ -19,6 +19,9 @@ describe MenusController do
       menu = Factory(:menu)
       put :update, id: menu, menu: menu.attributes.merge(name: "new name")
       should_deny_access
+
+      delete :destroy, id: menu
+      should_deny_access
     end
 
     describe "GET 'show'" do
