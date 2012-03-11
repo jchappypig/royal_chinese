@@ -22,41 +22,63 @@ describe FollowersController do
       end
     end
 
-    describe "Follower 'create'" do
-      it "should ignore create request but show subscribe successfully if already subscribed before" do
-        follower = Factory.build(:follower)
-        follower.save!
-        Follower.count.should == 1
+    describe "POST 'subscribe'" do
+      describe "create" do
+        it "should create follower and send follower thank you letter if valid" do
+          Follower.count.should == 0
+          follower = Factory.build(:follower)
+          post :subscribe, follower: follower.attributes
+          Follower.count.should == 1
 
-        post :create, follower: follower.attributes
-        Follower.count.should == 1
+          flash[:notice].should == 'You have successfully subscribed to our newsletter.'
+          response.should redirect_to root_path
 
-        flash[:notice].should == 'You have successfully subscribed to our newsletter.'
-        response.should redirect_to root_path
+          should have_sent_email.from('royal_chinese@hotmail.com')
+          should have_sent_email.to(follower.email)
+          should have_sent_email.with_subject('Thank you for subscribing')
+          should have_sent_email.with_body(/#{follower.name}/)
+          should have_sent_email.with_body(/Thank you for subscribing/)
+        end
+
+        it "should not create follower if invalid" do
+          Follower.count.should == 0
+          post :subscribe, follower: Factory.build(:follower, name: "").attributes
+          Follower.count.should == 0
+
+          response.should render_template root_path
+        end
       end
 
-      it "should save follower and send follower thank you letter if valid" do
-        Follower.count.should == 0
-        follower = Factory.build(:follower)
-        post :create, follower: follower.attributes
-        Follower.count.should == 1
+      describe "update" do
+        before :each do
+          @follower = Factory(:follower, is_subscribe: false, name: 'Huanhuan')
+        end
 
-        flash[:notice].should == 'You have successfully subscribed to our newsletter.'
-        response.should redirect_to root_path
+        it "should update follower if already subscribed before" do
+          Follower.count.should == 1
+          @follower.is_subscribe.should be_false
+          @follower.name.should == 'Huanhuan'
 
-        should have_sent_email.from('royal_chinese@hotmail.com')
-        should have_sent_email.to(follower.email)
-        should have_sent_email.with_subject('Thank you for subscribing')
-        should have_sent_email.with_body(/#{follower.name}/)
-        should have_sent_email.with_body(/Thank you for subscribing/)
-      end
+          post :subscribe, follower: @follower.attributes.merge(name: 'Harrison')
+          Follower.count.should == 1
+          @follower = Follower.find_by_email_ignore_case(@follower.email)
+          @follower.is_subscribe.should be_true
+          @follower.name.should == 'Harrison'
 
-      it "should not save follower if invalid" do
-        Follower.count.should == 0
-        post :create, follower: Factory.build(:follower, name: "").attributes
-        Follower.count.should == 0
+          flash[:notice].should == 'You have successfully subscribed to our newsletter.'
+          response.should redirect_to root_path
 
-        response.should render_template root_path
+          should_not have_sent_email.from('royal_chinese@hotmail.com')
+        end
+
+        it "should not update follower if invalid" do
+          post :subscribe, follower: @follower.attributes.merge(name: '')
+          @follower = Follower.find_by_email_ignore_case(@follower.email)
+          @follower.is_subscribe.should be_false
+          @follower.name.should == 'Huanhuan'
+
+          response.should render_template root_path
+        end
       end
     end
 
@@ -64,7 +86,7 @@ describe FollowersController do
 
     def should_deny_access
       response.should redirect_to new_user_session_path
-      flash[:alert].should == "You need to sign in or sign up before continuing."
+      flash[:alert].should == 'You need to sign in or sign up before continuing.'
     end
   end
 

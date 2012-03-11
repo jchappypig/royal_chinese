@@ -1,5 +1,5 @@
 %h3.accent Royal Chinese Newsletter - subscribe to receive our latest news
-= simple_form_for(@follower) do |f|
+= simple_form_for(@follower, url: subscribe_followers_path) do |f|
   = f.error_notification
 
   .inputs
