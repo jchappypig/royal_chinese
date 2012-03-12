@@ -8,6 +8,8 @@ RoyalChinese::Application.routes.draw do
   resources :followers, only: [:index, :destroy] do
     collection do
       post 'subscribe'
+      get 'unsubscribing'
+      post 'unsubscribe'
     end
   end
 

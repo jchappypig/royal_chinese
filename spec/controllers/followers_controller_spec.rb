@@ -82,7 +82,7 @@ describe FollowersController do
       end
     end
 
-    describe "GET 'unsubscribe'" do
+    describe "GET 'unsubscribing'" do
       it "should response successfully"  do
         get :unsubscribing
         assigns(:follower).should be_kind_of(Follower)
