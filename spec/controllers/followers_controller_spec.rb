@@ -82,6 +82,38 @@ describe FollowersController do
       end
     end
 
+    describe "GET 'unsubscribe'" do
+      it "should response successfully"  do
+        get :unsubscribing
+        assigns(:follower).should be_kind_of(Follower)
+        response.should render_template :unsubscribing
+      end
+    end
+
+    describe "POST 'unsubscribed'" do
+      before :each do
+        @follower = Factory(:follower)
+      end
+
+      it "should unsubscribe newsletter if email is found" do
+        post :unsubscribe, follower: @follower.attributes
+        @follower = Follower.find_by_email_ignore_case(@follower.email)
+
+        @follower.is_subscribe.should be_false
+        flash[:notice].should == 'You have successfully unsubscribed to our newsletter.'
+        response.should redirect_to root_path
+      end
+
+      it "should not unsubscribe newsletter if email is not found" do
+        post :unsubscribe, follower: @follower.attributes.merge(email: 'random@email.com')
+        @follower = Follower.find_by_email_ignore_case(@follower.email)
+
+        @follower.is_subscribe.should be_true
+        flash[:alert].should == 'Sorry, you have not subscribed to our newsletter'
+        response.should render_template :unsubscribing
+      end
+    end
+
     private
 
     def should_deny_access

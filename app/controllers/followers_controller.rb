@@ -1,5 +1,5 @@
 class FollowersController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:new, :subscribe, :create, :update]
+  skip_before_filter :authenticate_user!, only: [:new, :subscribe, :create, :update, :unsubscribing, :unsubscribe]
 
   def index
     @followers = Follower.all
@@ -12,6 +12,23 @@ class FollowersController < ApplicationController
 
   def subscribe
     Follower.find_by_email_ignore_case(params[:follower][:email])? update : create
+  end
+
+  def unsubscribing
+    @follower = Follower.new
+  end
+
+  def unsubscribe
+    @follower = Follower.find_by_email_ignore_case(params[:follower][:email])
+
+    if @follower
+      @follower.is_subscribe = false
+      @follower.save!
+      redirect_to root_path, notice: 'You have successfully unsubscribed to our newsletter.'
+    else
+      flash.now.alert = 'Sorry, you have not subscribed to our newsletter'
+      render :unsubscribing
+    end
   end
 
   def destroy
