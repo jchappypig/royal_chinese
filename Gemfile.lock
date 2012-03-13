@@ -181,6 +181,9 @@ GEM
       ffi (~> 1.0)
       multi_json (~> 1.0)
       rubyzip
+    sendgrid (1.0.1)
+      json
+      json
     shoulda (3.0.0)
       shoulda-context (~> 1.0.0)
       shoulda-matchers (~> 1.0.0)
@@ -245,6 +248,7 @@ DEPENDENCIES
   rb-fsevent (= 0.4.3.1)
   rspec-rails
   sass-rails (~> 3.2.3)
+  sendgrid
   shoulda
   simple_form
   spork
