@@ -40,4 +40,10 @@ class PostsController < ApplicationController
 
     redirect_to posts_url
   end
+
+  def broadcast
+    @post = Post.find(params[:id])
+    Delayed::Job.enqueue NewsletterJob.new(@post)
+    redirect_to post_path(@post)
+  end
 end

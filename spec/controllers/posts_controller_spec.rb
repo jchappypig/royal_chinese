@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe PostsController do
+  let(:postage) {Factory(:post)}
+
   context "not authenticated user" do
     it "should not allow user access'" do
       get :index
@@ -12,11 +14,16 @@ describe PostsController do
       post :create, post: Factory.attributes_for(:post)
       should_deny_access
 
-      get :edit, id: Factory(:post)
+      get :edit, id: postage
       should_deny_access
 
-      postage = Factory(:post)
       put :update, id: postage, post: postage.attributes.merge(name: "new name")
+      should_deny_access
+
+      delete :destroy, id: postage
+      should_deny_access
+
+      post :broadcast, id: postage
       should_deny_access
     end
 
@@ -74,32 +81,28 @@ describe PostsController do
 
     describe "GET 'edit'" do
       before :each do
-        @post = Factory(:post)
-        get :edit, id: @post
+        get :edit, id: postage
       end
 
       specify { response.should be_success }
-      specify { assigns(:post).should == @post }
+      specify { assigns(:post).should == postage }
     end
 
     describe "Put 'update'" do
-      before :each do
-        @post = Factory(:post)
-      end
 
       it "should update post if valid" do
-        put :update, id: @post, post: @post.attributes.merge(title: "new title")
+        put :update, id: postage, post: postage.attributes.merge(title: "new title")
 
-        Post.find_by_id(@post).title.should == "new title"
+        Post.find_by_id(postage).title.should == "new title"
 
         flash[:notice].should == 'Post was successfully updated.'
         response.should redirect_to post_path(assigns(:post))
       end
 
       it "should not update post if invalid" do
-        put :update, id: @post, post: @post.attributes.merge(title: "")
+        put :update, id: postage, post: postage.attributes.merge(title: "")
 
-        Post.find_by_id(@post).title.should == @post.title
+        Post.find_by_id(postage).title.should == postage.title
 
         response.should render_template :edit
       end
@@ -107,22 +110,33 @@ describe PostsController do
 
     describe "GET 'show'" do
       before :each do
-        @post = Factory(:post)
-        get :show, id: @post
+        get :show, id: postage
       end
 
       specify { response.should be_success }
-      specify { assigns(:post) == @post }
+      specify { assigns(:post) == postage }
     end
 
     describe "Delete 'destroy'" do
       it "should destroy post" do
-        post = Factory(:post)
+        postage = Factory(:post)
         Post.count.should == 1
-        delete :destroy, id: post
+        delete :destroy, id: postage
         Post.count.should == 0
 
         response.should redirect_to posts_path
+      end
+    end
+
+    describe "Post 'broadcast'" do
+      it "should send post as newsletter to followers" do
+        mailer_obj = mock()
+        NewsletterJob.should_receive(:new).with(postage).and_return(mailer_obj)
+        Delayed::Job.should_receive(:enqueue).with(mailer_obj)
+
+        post :broadcast, id: postage
+
+        response.should redirect_to post_path(postage)
       end
     end
   end
