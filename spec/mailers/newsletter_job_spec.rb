@@ -9,8 +9,20 @@ describe NewsletterJob do
 
     newsletter_job = NewsletterJob.new(newsletter)
     newsletter_job.stub(:batch_size).and_return(2)
-    CustomerMailer.should_receive(:subscribe_newsletter).once.with(newsletter, subscribing_followers[0..1])
-    CustomerMailer.should_receive(:subscribe_newsletter).once.with(newsletter, subscribing_followers[2..3])
+    mail = mock()
+    mail.should_receive(:deliver)
+    another_mail = mock()
+    another_mail.should_receive(:deliver)
+    CustomerMailer.should_receive(:subscribe_newsletter).once.with(newsletter, subscribing_followers[0..1]).and_return(mail)
+    CustomerMailer.should_receive(:subscribe_newsletter).once.with(newsletter, subscribing_followers[2..3]).and_return(another_mail)
     newsletter_job.perform
+  end
+
+  it "should subscribe newsletter once if within batch size" do
+    Factory(:follower)
+    CustomerMailer.should_receive(:subscribe_newsletter)
+    newsletter_job = NewsletterJob.new(Factory(:post))
+    puts "newsletter_job.perform"
+    puts newsletter_job.perform
   end
 end
