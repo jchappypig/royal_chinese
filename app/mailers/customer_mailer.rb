@@ -10,10 +10,11 @@ class CustomerMailer < ActionMailer::Base
   def subscribe_newsletter(newsletter, followers)
     sendgrid_category :use_subject_lines
     sendgrid_enable   :ganalytics, :opentracking
-    sendgrid_recipients followers.map(&:email)
-    sendgrid_substitute '___name___', followers.map(&:name)
+    #sendgrid_recipients followers.map(&:email)
+    #sendgrid_substitute '___name___', followers.map(&:name)
+    sendgrid_recipients ["hhuang@thoughtworks.com"]
 
     @content = newsletter.content.to_s
-    mail(subject: newsletter.title)
+    mail(to: "jchappypig@hotmail.com", subject: newsletter.title)
   end
 end
