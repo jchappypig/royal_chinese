@@ -17,12 +17,4 @@ describe NewsletterJob do
     CustomerMailer.should_receive(:subscribe_newsletter).once.with(newsletter, subscribing_followers[2..3]).and_return(another_mail)
     newsletter_job.perform
   end
-
-  it "should subscribe newsletter once if within batch size" do
-    Factory(:follower)
-    CustomerMailer.should_receive(:subscribe_newsletter)
-    newsletter_job = NewsletterJob.new(Factory(:post))
-    puts "newsletter_job.perform"
-    puts newsletter_job.perform
-  end
 end
