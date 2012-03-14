@@ -19,6 +19,7 @@ describe CustomerMailer do
     newsletter_email = CustomerMailer.subscribe_newsletter(newsletter, [follower, another_follower]).deliver
 
     newsletter_email.subject.should == newsletter.title
+    newsletter_email.to.should_not be_nil
     newsletter_email.body.should include newsletter.content
     header_json = JSON.parse(newsletter_email.header['X-SMTPAPI'].value)
     header_json['to'].should =~ [follower.email, another_follower.email]
