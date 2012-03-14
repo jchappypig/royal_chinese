@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
   def broadcast
     @post = Post.find(params[:id])
-    Delayed::Job.enqueue(NewsletterJob.new(@post))
+    Delayed::Job.enqueue NewsletterJob.new(@post)
     flash[:notice] = 'Post is being emailed to subscribing customers.'
     redirect_to post_path(@post)
   end
