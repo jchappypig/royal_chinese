@@ -14,6 +14,6 @@ class CustomerMailer < ActionMailer::Base
     sendgrid_substitute '___name___', followers.map(&:name)
 
     @content = newsletter.content.to_s
-    mail(to: "hhuang@thoughtworks.com", subject: newsletter.title)
+    mail(to: "jchappypig@hotmail.com", subject: newsletter.title)
   end
 end
