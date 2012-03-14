@@ -1,6 +1,10 @@
 RoyalChinese::Application.routes.draw do
 
-  resources :posts
+  resources :posts do
+    member do
+      put 'broadcast'
+    end
+  end
 
   devise_for :users, :controllers => { registrations: 'users/registrations', :sessions => 'users/sessions' }
 

@@ -135,7 +135,7 @@ describe PostsController do
         Delayed::Job.should_receive(:enqueue).with(mailer_obj)
 
         post :broadcast, id: postage
-
+        flash[:notice].should == 'Post is being emailed to subscribing customers.'
         response.should redirect_to post_path(postage)
       end
     end
