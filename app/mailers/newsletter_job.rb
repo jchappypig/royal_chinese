@@ -5,7 +5,7 @@ class NewsletterJob < Struct.new(:newsletter)
 
   def perform
     Follower.scoped_by_is_subscribe(true).find_in_batches(batch_size: batch_size) do |subscribing_followers|
-      CustomerMailer.subscribe_newsletter(newsletter, subscribing_followers.map(&:email))
+      CustomerMailer.subscribe_newsletter(newsletter, subscribing_followers)
     end
   end
 end
