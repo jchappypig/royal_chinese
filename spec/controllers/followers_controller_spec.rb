@@ -1,7 +1,9 @@
 require 'spec_helper'
+require File.dirname(__FILE__) + '/helpers/priority_control'
 
 describe FollowersController do
   include Shoulda::Matchers::ActionMailer
+  include PriorityControl
 
   context "not authenticated user" do
     it "should not allow user access'" do
@@ -113,13 +115,6 @@ describe FollowersController do
         flash[:alert].should == 'Sorry, you have not subscribed to our newsletter'
         response.should render_template :unsubscribing
       end
-    end
-
-    private
-
-    def should_deny_access
-      response.should redirect_to new_user_session_path
-      flash[:alert].should == 'You need to sign in or sign up before continuing.'
     end
   end
 

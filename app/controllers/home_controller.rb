@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_filter :authenticate_user!
+  skip_before_filter :authenticate_user!, only: [:index, :our_menu, :contact_us, :about_us]
 
   def index
     @title = "Home"
@@ -16,5 +16,9 @@ class HomeController < ApplicationController
 
   def about_us
     @title = "About Us"
+  end
+
+  def admin
+
   end
 end

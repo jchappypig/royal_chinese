@@ -21,6 +21,7 @@ RoyalChinese::Application.routes.draw do
   get 'about_us',  to: 'home#about_us'
   get 'contact_us',  to: 'home#contact_us'
   get 'our_menu', to: 'home#our_menu'
+  get 'admin', to: 'home#admin'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

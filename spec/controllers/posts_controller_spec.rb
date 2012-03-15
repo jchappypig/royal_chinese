@@ -1,6 +1,9 @@
 require 'spec_helper'
+require File.dirname(__FILE__) + '/helpers/priority_control'
 
 describe PostsController do
+  include PriorityControl
+
   let(:postage) {Factory(:post)}
 
   context "not authenticated user" do
@@ -25,13 +28,6 @@ describe PostsController do
 
       post :broadcast, id: postage
       should_deny_access
-    end
-
-    private
-
-    def should_deny_access
-      response.should redirect_to new_user_session_path
-      flash[:alert].should == "You need to sign in or sign up before continuing."
     end
   end
 

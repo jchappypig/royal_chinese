@@ -1,7 +1,10 @@
 require 'spec_helper'
+require File.dirname(__FILE__) + '/helpers/priority_control'
 
 
 describe MenusController do
+  include PriorityControl
+
   context "not authenticated user" do
     it "should not allow user access'" do
       get :index
@@ -32,13 +35,6 @@ describe MenusController do
 
       specify { response.should be_success }
       specify { assigns(:menu) == @menu }
-    end
-
-    private
-
-    def should_deny_access
-      response.should redirect_to new_user_session_path
-      flash[:alert].should == "You need to sign in or sign up before continuing."
     end
   end
 
