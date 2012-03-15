@@ -2,22 +2,22 @@
   Edit 
   = resource_name.to_s.humanize
 
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = f.error_notification
-  = f.input :first_name, :required => true, :autofocus => true
-  = f.input :last_name, :required => true
-  = f.input :email, :required => true
-  = f.input :password, :hint => "leave it blank if you don't want to change it", :required => false
-  = f.input :password_confirmation, :required => false
-  = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
+  = f.input :first_name, required: true, autofocus: true
+  = f.input :last_name, required: true
+  = f.input :email, required: true
+  = f.input :password, :hint => "leave it blank if you don't want to change it", required: false
+  = f.input :password_confirmation, required: false
+  = f.input :current_password, :hint => 'we need your current password to confirm your changes', required: true
 
-  = f.button :submit, "Update"
+  = f.button :submit, 'Update', disable_with: 'Saving...'
 %h3
   Cancel my account
 
 %p
   Unhappy?
-  = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
+  = link_to 'Cancel my account', registration_path(resource_name), :confirm => 'Are you sure?', method: :delete
   \.
 %p
-  = link_to "Back", :back
+  = link_to 'Back', :back

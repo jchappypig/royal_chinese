@@ -15,4 +15,4 @@
 %p
   = simple_form_for @post, url: broadcast_post_path(@post) do  |f|
     .actions
-      = f.button :submit, 'Broadcast', class: 'btn'
+      = f.button :submit, 'Broadcast', disable_with: 'Sending...'
