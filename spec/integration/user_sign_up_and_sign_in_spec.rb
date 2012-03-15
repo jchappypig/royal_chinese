@@ -11,6 +11,7 @@ describe "user sign up and sign in" do
     find(".alert-success").should have_content("Welcome! You have signed up successfully.")
     click_link "Logout"
     find(".alert-success").should have_content("Signed out successfully.")
+    page.current_path.should == root_path
 
     click_link "Sign in"
     fill_in "user_email", with: "jchappypig@hotmail.com"
@@ -18,6 +19,7 @@ describe "user sign up and sign in" do
 
     click_button "Sign in"
     find(".alert-success").should have_content("Signed in successfully.")
+    page.current_path.should == admin_path
 
   end
 end
