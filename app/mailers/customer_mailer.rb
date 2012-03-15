@@ -1,10 +1,10 @@
 class CustomerMailer < ActionMailer::Base
   include SendGrid
-  default from: "\"Royal Chinese\" <royal_chinese@hotmail.com>"
+  include ApplicationHelper
 
   def thank_you_subscribing(follower)
     @follower = follower
-    mail(to: @follower.email, subject: "Thank you for subscribing")
+    mail(to: @follower.email, subject: 'Thank you for subscribing', from: company_contact_email_with_name)
   end
 
   def subscribe_newsletter(newsletter, followers)
@@ -14,6 +14,6 @@ class CustomerMailer < ActionMailer::Base
     sendgrid_substitute '___name___', followers.map(&:name)
 
     @content = newsletter.content.to_s
-    mail(to: "jchappypig@hotmail.com", subject: newsletter.title)
+    mail(to: 'jchappypig@hotmail.com', subject: newsletter.title, from: company_contact_email_with_name)
   end
 end
