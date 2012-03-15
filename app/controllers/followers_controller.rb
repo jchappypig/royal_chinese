@@ -2,7 +2,7 @@ class FollowersController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:new, :subscribe, :create, :update, :unsubscribing, :unsubscribe]
 
   def index
-    @followers = Follower.all
+    @followers = Follower.paginate(page: params[:page])
   end
 
   def new

@@ -46,5 +46,6 @@ module RoyalChinese
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+    WillPaginate.per_page = 10
   end
 end
