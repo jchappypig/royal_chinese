@@ -9,6 +9,8 @@ describe "user sign up and sign in" do
     register email: "jchappypig@hotmail.com", password: "123456", password_confirmation: "123456"
 
     find(".alert-success").should have_content("Welcome! You have signed up successfully.")
+    page.current_path.should == user_root_path
+
     click_link "Logout"
     find(".alert-success").should have_content("Signed out successfully.")
     page.current_path.should == root_path
@@ -19,7 +21,7 @@ describe "user sign up and sign in" do
 
     click_button "Sign in"
     find(".alert-success").should have_content("Signed in successfully.")
-    page.current_path.should == admin_path
+    page.current_path.should == user_root_path
 
   end
 end
