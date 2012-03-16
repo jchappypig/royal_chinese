@@ -24,6 +24,8 @@ RoyalChinese::Application.routes.draw do
   get 'our_menu', to: 'home#our_menu'
   get 'admin', to: 'home#admin', as: :user_root
 
+  match '/404', to: 'errors#not_found'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
