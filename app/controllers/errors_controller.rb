@@ -8,7 +8,7 @@ class ErrorsController < ApplicationController
   ERRORS.each do |error|
     define_method error do
       respond_to do |format|
-        format.html { render error }
+        format.html { render error, :status => error }
         format.any { head error }
       end
     end
