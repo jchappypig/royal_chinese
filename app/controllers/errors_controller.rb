@@ -5,11 +5,11 @@ class ErrorsController < ApplicationController
       :unprocessable_entity
   ].freeze
 
-  ERRORS.each do |error|
-    define_method error do
+  ERRORS.each do |e|
+    define_method e do
       respond_to do |format|
-        format.html { render error, :status => error }
-        format.any { head error }
+        format.html { render e, :status => e }
+        format.any { head e }
       end
     end
     end
