@@ -6,7 +6,7 @@ RoyalChinese::Application.routes.draw do
     end
   end
 
-  devise_for :users, :controllers => { registrations: 'users/registrations', :sessions => 'users/sessions' }
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   resources :menus
   resources :followers, only: [:index, :destroy] do
@@ -23,7 +23,9 @@ RoyalChinese::Application.routes.draw do
   get 'our_menu', to: 'home#our_menu'
   get 'admin', to: 'home#admin', as: :user_root
 
-  match '/404', :to => 'errors#not_found', as: :not_found
+  match '/404', to: 'errors#not_found'
+  match '/500', to: 'errors#internal_server_error'
+  match '/422', to: 'errors#unprocessable_entity_error'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
