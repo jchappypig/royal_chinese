@@ -47,5 +47,8 @@ module RoyalChinese
 
     config.assets.initialize_on_precompile = false
     WillPaginate.per_page = 10
+
+    # for customize 404 page
+    config.exceptions_app = self.routes
   end
 end
