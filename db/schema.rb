@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20120320072720) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "favorite_lists", :force => true do |t|
+  create_table "favorites", :force => true do |t|
     t.integer  "menu_id"
     t.string   "ip_address"
     t.datetime "created_at", :null => false

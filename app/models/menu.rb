@@ -11,5 +11,5 @@ class Menu < ActiveRecord::Base
   validates_attachment_size :image, less_than: 2.megabytes
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
-  has_many :favorite_lists
+  has_many :favorites
 end
