@@ -68,4 +68,11 @@ RoyalChinese::Application.configure do
       :domain         => 'royal-chinese.herokuapp.com'
   }
   ActionMailer::Base.delivery_method = :smtp
+
+  config.paper_clip_options = {
+      styles: { thumbnail: '160x120>',  medium: '260x180>', large: '360x268>' },
+      default_url: '/assets/images/rails.png',
+      url: '/assets/images/menus/:id/:style/:basename.:extension',
+      storage: :s3
+  }
 end
