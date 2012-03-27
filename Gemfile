@@ -11,7 +11,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'simple_form'
+gem 'simple_form',  '~> 2.0.1'
+gem 'client_side_validations', '~> 3.2.0.beta.3'
 gem 'thin'
 gem 'cancan'
 gem 'haml-rails'
