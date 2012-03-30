@@ -4,6 +4,7 @@ $bg-color-dark: #660000;
 $bg-color-light: #cc3300;
 $default-font-color: #ffffff;
 $accent-color: #ffcc66;
+$accent-color-light: #ffcc33;
 
 body {
   background-color: $bg-color-dark;
@@ -59,10 +60,10 @@ table {
 }
 
 a {
-  color: $bg-color-light;
+  color: $accent-color;
 
   &:hover {
-    color: $bg-color-dark;
+    color: $accent-color-light;
   }
 }
 
@@ -71,13 +72,6 @@ a {
 
   .logo {
     margin-top: 15px;
-  }
-
-  a {
-    @extend .accent;
-    &:hover {
-      color: #999;;
-    }
   }
 }
 
@@ -99,24 +93,20 @@ a {
 
 .header {
   .logo {
-    margin-top: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     display: inline-block;
   }
-  .navbar.navbar-inner {
-    box-shadow: none;
-    padding-right: 0px;
-    background-image: none;
-    background-color: transparent;
-    margin-top: 45px;
 
-    a {
-      color: #ffffff;
-      background-color: transparent;
-      &:hover {
-        color: #999;
-        background-color: transparent;
+  .navbar .navbar-inner .container {
+    ul {
+      margin-top: 55px;
+      
+      a {
+        padding-bottom: 11px;
       }
     }
+
   }
 }
 
