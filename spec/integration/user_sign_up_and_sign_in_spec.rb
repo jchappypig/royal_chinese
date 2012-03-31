@@ -15,7 +15,7 @@ describe "user sign up and sign in" do
     find(".alert-success").should have_content("Signed out successfully.")
     page.current_path.should == root_path
 
-    click_link "Sign in"
+    visit new_user_session_path
     fill_in "user_email", with: "jchappypig@hotmail.com"
     fill_in "user_password", with: "123456"
 

@@ -8,8 +8,7 @@ module RegistrationHelper
 
     Factory(:email_white_list, email: options[:email])
 
-    visit root_path
-    click_link "Sign up"
+    visit new_user_registration_path
 
     fill_in "user_first_name", with: "Huanhuan"
     fill_in "user_last_name", with: "Huang"
@@ -20,8 +19,7 @@ module RegistrationHelper
   end
 
   def sign_in(options={})
-    visit root_path
-    click_link "Sign in"
+    visit new_user_session_path
     options[:email] ||= "jchappypig@hotmail.com"
     options[:password] ||= "123456"
 

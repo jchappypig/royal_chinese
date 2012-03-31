@@ -27,7 +27,7 @@ describe "User recover password" do
     find(".alert-success").should have_content("Your password was changed successfully")
     click_link "Logout"
 
-    click_link "Sign in"
+    visit new_user_session_path
     fill_in "user_email", with: "jchappypig@hotmail.com"
     fill_in "user_password", with: "654321"
     click_button "Sign in"

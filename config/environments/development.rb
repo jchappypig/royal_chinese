@@ -39,11 +39,4 @@ RoyalChinese::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
-
-  config.paper_clip_options = {
-      styles: { thumbnail: '160x120>',  medium: '260x180>', large: '360x268>' },
-      default_url: '/assets/images/rails.png',
-      url: '/assets/images/menus/:id/:style/:basename.:extension',
-      path: ':rails_root/public/assets/images/menus/:id/:style/:basename.:extension'
-  }
 end
