@@ -7,15 +7,25 @@
         %ul.nav.cap.pull-right
           %li.active
             = link_to "Home", root_path
+          .divider
+            |
           %li
             = link_to "Our Menu", our_menu_path
+          .divider
+            |
           %li
             = link_to "Contact Us", contact_us_path
+          .divider
+            |
           %li
             = link_to "Our Location", about_us_path
           - if user_signed_in?
+            .divider
+              |
             %li
               = link_to "Admin", user_root_path
+            .divider
+              |
             %li
               = link_to "Logout", destroy_user_session_path, method: :delete
 

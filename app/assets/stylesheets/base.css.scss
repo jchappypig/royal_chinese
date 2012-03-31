@@ -5,6 +5,7 @@ $bg-color-light: #cc3300;
 $default-font-color: #ffffff;
 $accent-color: #ffcc66;
 $accent-color-light: #ffcc33;
+$gray: #999;
 
 body {
   background-color: $bg-color-dark;
@@ -98,15 +99,23 @@ a {
     display: inline-block;
   }
 
-  .navbar .navbar-inner .container {
-    ul {
-      margin-top: 55px;
-      
-      a {
-        padding-bottom: 11px;
+  .navbar{
+    margin-bottom: 10px;
+    .navbar-inner .container {
+      ul {
+        margin-top: 55px;
+
+        a {
+          padding-bottom: 11px;
+        }
+      }
+      .divider {
+        float: left;
+        color: $gray;
+        margin-top: 10px;
+        margin-left: 5px;
       }
     }
-
   }
 }
 
@@ -126,4 +135,16 @@ a {
     height: $map-height;
   }
 
+}
+
+#gallery {
+  -moz-box-shadow: 0 0 15px 5px #000000;;
+  -webkit-box-shadow: 0 0 15px 5px #000000;;
+  box-shadow: 0 0 15px 5px #000000;
+}
+
+#flag {
+  position: absolute;
+  top: 85px;
+  left: 880px;
 }
