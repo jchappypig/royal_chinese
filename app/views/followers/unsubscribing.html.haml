@@ -2,6 +2,5 @@
   Unsubscribe Newsletter
 
 = simple_form_for(@follower, url: unsubscribe_followers_path) do |f|
-  = f.error_notification
   = f.input :email, required: true
   = f.button :submit, 'Unsubscribe', disable_with: 'Unsubscribing...'

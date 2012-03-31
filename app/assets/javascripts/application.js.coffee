@@ -12,4 +12,5 @@
 #== require gmaps4rails/mapquest
 #== require gmaps4rails/openlayers
 #== require gmaps4rails/all_apis
+#== require rails.validations
 #== require_tree .

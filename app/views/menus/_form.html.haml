@@ -1,6 +1,4 @@
 = simple_form_for(@menu, validate: true, html: {multipart: true}) do |f|
-  = f.error_notification
-
   .inputs
     = f.input :name
     = image_tag @menu.image.url(:thumbnail)
