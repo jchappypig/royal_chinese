@@ -1,7 +1,8 @@
 = link_to image_tag('gallery_1.png', id: 'gallery')
 = image_tag('flag.png', id: 'flag')
 = image_tag('pot.png', id: 'pot')
-%h3.accent #{company_name} Newsletter - subscribe to receive our latest news
+= image_tag('newsletter_tag.png', id: 'newsletter_tag')
+%h3.accent to receive our latest promotions and news
 = simple_form_for(@follower, url: subscribe_followers_path) do |f|
   .inputs
     = f.input :name
