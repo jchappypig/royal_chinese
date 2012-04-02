@@ -2,11 +2,10 @@
 = image_tag('flag.png', id: 'flag')
 = image_tag('pot.png', id: 'pot')
 = image_tag('newsletter_tag.png', id: 'newsletter_tag')
-%h3.accent to receive our latest promotions and news
 = simple_form_for(@follower, url: subscribe_followers_path) do |f|
   .inputs
     = f.input :name
     = f.input :email
 
   .actions
-    = f.button :submit, 'Subscribe', disable_with: 'Subscribing...'
+    = f.button :submit, 'Subscribe', disable_with: 'Subscribing...', class: 'btn-primary'

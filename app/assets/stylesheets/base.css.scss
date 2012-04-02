@@ -6,6 +6,10 @@ $default-font-color: #ffffff;
 $accent-color: #ffcc66;
 $accent-color-light: #ffcc33;
 $gray: #999;
+$btn-bg-color: #2C2C2C;
+$btn-color-dark: #333;
+$btn-color-light: #222;
+$logo-height: 54px;
 
 body {
   background-color: $bg-color-dark;
@@ -103,7 +107,7 @@ a {
     margin-bottom: 10px;
     .navbar-inner .container {
       ul {
-        margin-top: 55px;
+        margin-top: $logo-height - 15px;
 
         a {
           padding-bottom: 11px;
@@ -145,16 +149,48 @@ a {
 
 #flag {
   position: absolute;
-  top: 85px;
+  top: $logo-height + 15px;
   left: 880px;
 }
 
 #pot {
   position: absolute;
-  top: 220px;
+  top: $logo-height + 150px;
   left: 780px;
 }
 
 #newsletter_tag {
   display: inline-block;
+}
+
+.form-horizontal .control-group > label {
+  width: auto;
+  text-align: left;
+}
+
+.form-horizontal .controls {
+  margin-left: 60px;
+}
+
+.btn-primary:active, .btn-primary.active {
+  background-color: $btn-bg-color;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+  background-color: $btn-color-light;
+}
+
+.btn-primary {
+  background-color: $btn-bg-color;
+  background-image: -moz-linear-gradient(top, $btn-color-dark, $btn-color-light);
+  background-image: -ms-linear-gradient(top, $btn-color-dark, $btn-color-light);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($btn-color-dark), to($btn-color-light));
+  background-image: -webkit-linear-gradient(top, $btn-color-dark, $btn-color-light);
+  background-image: -o-linear-gradient(top, $btn-color-dark, $btn-color-light);
+  background-image: linear-gradient(top, $btn-color-dark, $btn-color-light);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333', endColorstr='#222', GradientType=0);
+  border-color: $btn-color-light $btn-color-light $btn-bg-color;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
