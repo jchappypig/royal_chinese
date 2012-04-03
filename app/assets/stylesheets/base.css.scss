@@ -194,3 +194,21 @@ a {
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+
+abbr[title='required'] {
+  font-size: 90%;
+  text-transform: uppercase;
+  color: $accent-color;
+  border-bottom: none;
+  cursor: default;
+}
+
+.control-group.error > label, .control-group.error .help-inline {
+  vertical-align: baseline;
+  color: $accent-color-light;
+  font-style: italic;
+}
+
+.control-group label {
+  display: inline-block;
+}
