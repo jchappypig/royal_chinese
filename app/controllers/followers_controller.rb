@@ -7,6 +7,7 @@ class FollowersController < ApplicationController
 
   def new
     @follower = Follower.new
+    @posts = Post.scoped_by_is_valid(true).limit(5).order('updated_at DESC')
     render 'home/index'
   end
 

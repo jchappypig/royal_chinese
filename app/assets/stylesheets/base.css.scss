@@ -212,3 +212,10 @@ abbr[title='required'] {
 .control-group label {
   display: inline-block;
 }
+
+.post {
+  border-bottom: 1px dotted;
+  .post_time {
+    margin-right: 10px;
+  }
+}

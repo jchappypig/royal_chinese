@@ -5,15 +5,6 @@ describe HomeController do
   include PriorityControl
 
   context "not authenticated user" do
-    describe "GET :index" do
-      before :each do
-        get :index
-      end
-
-      specify { response.should be_success }
-      specify { assigns(:title).should == "Home" }
-    end
-
     describe "GET 'our menu'" do
       before :each do
         get :our_menu

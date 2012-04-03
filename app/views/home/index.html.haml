@@ -2,10 +2,15 @@
 = image_tag('flag.png', id: 'flag')
 = image_tag('pot.png', id: 'pot')
 = image_tag('newsletter_tag.png', id: 'newsletter_tag')
-= simple_form_for(@follower, url: subscribe_followers_path) do |f|
-  .inputs
-    = f.input :name
-    = f.input :email
+.row
+  .span3
+    = simple_form_for(@follower, url: subscribe_followers_path) do |f|
+      .inputs
+        = f.input :name
+        = f.input :email
 
-  .actions
-    = f.button :submit, 'Subscribe', disable_with: 'Subscribing...', class: 'btn-primary'
+      .actions
+        = f.button :submit, 'Subscribe', disable_with: 'Subscribing...', class: 'btn-primary'
+  .span5
+    %ul
+      = render partial: 'home/post', collection: @posts
