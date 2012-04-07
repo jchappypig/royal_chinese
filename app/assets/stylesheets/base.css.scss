@@ -6,9 +6,9 @@ $default-font-color: #ffffff;
 $accent-color: #ffcc66;
 $accent-color-light: #ffcc33;
 $gray: #999;
-$btn-bg-color: #2C2C2C;
-$btn-color-dark: #333;
-$btn-color-light: #222;
+$dark-scene-bg-color: #2C2C2C;
+$dark-scene-bg-color-dark: #333;
+$dark-scene-bg-color-light: #222;
 $logo-height: 54px;
 
 body {
@@ -27,6 +27,7 @@ body {
   text-transform: UPPERCASE;
 }
 
+.mt10 { margin-top: 10px; }
 .mt20 { margin-top: 20px; }
 
 h1, h2, h3, h4, h5, h6, label {
@@ -50,11 +51,9 @@ a {
 }
 
 .footer {
+  border-top: 2px solid $dark-scene-bg-color-light;
   margin-top: 40px;
-
-  .logo {
-    margin-top: 15px;
-  }
+  background: $dark-scene-bg-color;
 }
 
 .accent {
