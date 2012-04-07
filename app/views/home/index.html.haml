@@ -4,7 +4,7 @@
 = image_tag('newsletter_tag.png', id: 'newsletter_tag')
 .row
   .span3
-    = simple_form_for(@follower, url: subscribe_followers_path) do |f|
+    = simple_form_for(@follower, url: subscribe_followers_path, html: {class: 'form-vertical'}) do |f|
       .inputs
         = f.input :name
         = f.input :email

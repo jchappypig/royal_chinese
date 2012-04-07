@@ -68,7 +68,15 @@ a {
 }
 
 .container {
-  width: 960px;
+  width: 940px;
+}
+
+.navbar .container {
+  width: 940px;
+}
+
+img {
+  max-width: 100%;
 }
 
 .header {
@@ -138,15 +146,6 @@ a {
   display: inline-block;
 }
 
-.form-horizontal .control-group > label {
-  width: auto;
-  text-align: left;
-}
-
-.form-horizontal .controls {
-  margin-left: 60px;
-}
-
 abbr[title='required'] {
   font-size: 90%;
   text-transform: uppercase;
@@ -159,10 +158,6 @@ abbr[title='required'] {
   vertical-align: baseline;
   color: $accent-color-light;
   font-style: italic;
-}
-
-.control-group label {
-  display: inline-block;
 }
 
 .post {
