@@ -1,9 +1,7 @@
 = link_to image_tag('gallery_1.png', id: 'gallery')
-= image_tag('flag.png', id: 'flag')
-= image_tag('pot.png', id: 'pot')
-= image_tag('newsletter_tag.png', id: 'newsletter_tag')
-.row
+.row.mt20
   .span3
+    = image_tag('newsletter_tag.png', id: 'newsletter_tag')
     = simple_form_for(@follower, url: subscribe_followers_path, html: {class: 'form-vertical'}) do |f|
       .inputs
         = f.input :name
@@ -14,3 +12,8 @@
   .span5
     %ul
       = render partial: 'home/post', collection: @posts
+
+  .span4
+    .right
+      = image_tag('flag.png', id: 'flag')
+    = image_tag('pot.png', id: 'pot')
