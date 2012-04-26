@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def our_menu
     @title = "Our Menu"
+    @menus = Menu.all
   end
 
   def contact_us

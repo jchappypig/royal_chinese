@@ -1,0 +1,13 @@
+%li.span3
+  .thumbnail
+    .menu_name
+      .menu_name_separator
+      .menu_name_text
+        = menu.name
+    .menu_img
+      = image_tag(menu.image)
+    .menu_favorites
+      = image_tag('heart.png')
+      = menu.favorites.count
+      people like it
+      = link_to 'Me too', favorites_path, method: 'post', class: 'btn btn-inverse'
