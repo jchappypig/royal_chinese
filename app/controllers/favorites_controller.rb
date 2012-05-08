@@ -5,7 +5,7 @@ class FavoritesController  < ApplicationController
   def create
     @menu.favorites.create(ip_address: request.remote_ip)
     respond_to do |format|
-      format.json { render json: {}, status: :ok }
+      format.js
     end
   end
 

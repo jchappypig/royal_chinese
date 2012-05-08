@@ -7,7 +7,7 @@ describe FavoritesController do
       Favorite.count.should == 0
       post :create, format: 'json', menu_id: menu
       Favorite.count.should == 1
-      response.body.should == '{}'
+      response.should render_template :create
     end
   end
 end
