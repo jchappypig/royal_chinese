@@ -8,6 +8,10 @@
       = image_tag(menu.image)
     .menu_favorites
       = image_tag('heart.png')
-      = menu.favorites.count
+      %span.num_of_favorites{class: "#{menu.id}"}
+        = menu.favorites.count
       people like it
-      = link_to 'Me too', favorites_path, method: 'post', class: 'btn btn-inverse'
+
+      = link_to 'Me too', menu_favorites_path(menu), method: :post, remote: true, class: 'btn btn-inverse'
+
+

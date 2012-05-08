@@ -8,8 +8,9 @@ RoyalChinese::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
-  resources :menus
-  resources :favorites, only: [:create]
+  resources :menus do
+    resources :favorites, only: [:create]
+  end
   resources :followers, only: [:index, :destroy] do
     collection do
       post 'subscribe'
