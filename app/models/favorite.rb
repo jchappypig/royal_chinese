@@ -6,10 +6,11 @@ class Favorite < ActiveRecord::Base
   belongs_to :menu
   validates_associated :menu
 
-  #scope :today, where("DATE(created_at) = DATE(?)", Time.now)
-  #validate :cannot_mark_twice_in_one_day, on: :create
-  #
-  #def cannot_mark_twice_in_one_day
-  #  errors.add(:base, "cannot mark twice in a day") if Favorite.today.find_by_menu_id_and_ip_address(menu_id, ip_address)
-  #end
+  scope :today, where("DATE(created_at) = DATE(?)", Time.now)
+  validate :cannot_mark_twice_in_one_day, on: :create
+
+  def cannot_mark_twice_in_one_day
+    errors.add(:base, 'You have marked this one. Give your love to the other menus too. Or Try again tomorrow.') if
+        Favorite.today.find_by_menu_id_and_ip_address(menu_id, ip_address)
+  end
 end

@@ -3,7 +3,7 @@ class FavoritesController  < ApplicationController
   before_filter :load_menu
 
   def create
-    @menu.favorites.create(ip_address: request.remote_ip)
+    @favorite = @menu.favorites.create(ip_address: request.remote_ip)
     respond_to do |format|
       format.js
     end

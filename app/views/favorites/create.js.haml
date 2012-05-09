@@ -1,1 +1,4 @@
 $(".#{@menu.id}.num_of_favorites").html("#{@menu.favorites.count}");
+- if @favorite.errors.any?
+  alert("#{@favorite.errors.full_messages[0]}");
+
