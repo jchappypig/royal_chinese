@@ -3,15 +3,15 @@
 
 .tabbable.tabs-left
   %ul.nav.nav-tabs
-    %li
-      %a{"data-toggle" => "tab", href: "#lA"} Hotpot
     %li.active
-      %a{"data-toggle" => "tab", href: "#lB"} BBQ
+      %a{"data-toggle" => "tab", href: "#hotpot"} Hotpot
+    %li
+      %a{"data-toggle" => "tab", href: "#bbq"} BBQ
   .tab-content
-    #lA.tab-pane.active
+    #hotpot.tab-pane.active
       %ul.thumbnails
         = render partial: 'home/menu', collection: Menu.find_all_by_dish_type('Hotpot')
-    #lB.tab-pane
+    #bbq.tab-pane
       %ul.thumbnails
         = render partial: 'home/menu', collection: Menu.find_all_by_dish_type('BBQ')
 
