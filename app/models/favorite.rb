@@ -10,7 +10,7 @@ class Favorite < ActiveRecord::Base
   validate :cannot_mark_twice_in_one_day, on: :create
 
   def cannot_mark_twice_in_one_day
-    errors.add(:base, 'You have marked this one. Give your love to the other menus too. Or Try again tomorrow.') if
+    errors.add(:base, 'cannot mark twice a day') if
         Favorite.today.find_by_menu_id_and_ip_address(menu_id, ip_address)
   end
 end
