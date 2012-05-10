@@ -24,7 +24,8 @@
                 positionClass: 'toast-top-right',
                 timeOut: 0, // Set timeOut to 0 to make it sticky
                 titleClass: 'toast-title',
-                messageClass: 'toast-message'
+                messageClass: 'toast-message',
+                dependencyElement: 'body'
             },
 
 
@@ -36,23 +37,20 @@
                 })
             },
 
-            getContainer = function (options) {
-                var $container = $('#' + options.containerId)
-
-                if ($container.length)
-                    return $container
-
-                $container = $('<div/>')
-                    .attr('id', options.containerId)
-                    .addClass(options.positionClass)
-
-                $container.appendTo($('body'))
-
-                return $container
+            success = function (message, title) {
+                return notify({
+                    iconClass: getOptions().iconClasses.success,
+                    message: message,
+                    title: title
+                })
             },
 
-            getOptions = function () {
-                return $.extend({}, defaults, toastr.options)
+            warning = function (message, title) {
+                return notify({
+                    iconClass: getOptions().iconClasses.warning,
+                    message: message,
+                    title: title
+                })
             },
 
             info = function (message, title) {
@@ -118,20 +116,23 @@
                 return $toastElement
             },
 
-            success = function (message, title) {
-                return notify({
-                    iconClass: getOptions().iconClasses.success,
-                    message: message,
-                    title: title
-                })
+            getOptions = function () {
+                return $.extend({}, defaults, toastr.options)
             },
 
-            warning = function (message, title) {
-                return notify({
-                    iconClass: getOptions().iconClasses.warning,
-                    message: message,
-                    title: title
-                })
+            getContainer = function (options) {
+                var $container = $('#' + options.containerId)
+
+                if ($container.length)
+                    return $container
+
+                $container = $('<div/>')
+                    .attr('id', options.containerId)
+                    .addClass(options.positionClass)
+
+                $container.appendTo($(options.dependencyElement))
+
+                return $container
             }
 
         return {

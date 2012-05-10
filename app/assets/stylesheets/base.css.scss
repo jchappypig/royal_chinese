@@ -211,4 +211,15 @@ abbr[title='required'] {
     color: $dark-scene-bg-color;
   }
 
+  #toast-container {
+    position: relative;
+    float: right;
+    top: -80px;
+    right: -10px;
+
+    &> div {
+      width: 160px;
+    }
+  }
+
 }
