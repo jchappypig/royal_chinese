@@ -9,7 +9,7 @@
 .row.mt20
   .span3
     = image_tag('newsletter_tag.png', id: 'newsletter_tag')
-    = simple_form_for(@follower, url: subscribe_followers_path, html: {class: 'form-vertical'}) do |f|
+    = simple_form_for(@follower, url: subscribe_followers_path, html: {class: 'form-vertical'}, remote: true) do |f|
       .inputs
         = f.input :name
         = f.input :email

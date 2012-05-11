@@ -1,0 +1,5 @@
+toastr.options = {dependencyElement: "#new_follower "};
+- if @follower.errors.any?
+  toastr.error("#{@follower.errors.full_messages[0]}");
+- else
+  toastr.success("You have successfully subscribed to our newsletter.");

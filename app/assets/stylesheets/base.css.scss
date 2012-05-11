@@ -177,6 +177,20 @@ img {
   display: inline-block;
 }
 
+#new_follower{
+
+  #toast-container {
+    position: relative;
+    float: right;
+    top: -250px;
+    left: -10px;
+
+    &> div {
+      width: 151px;
+    }
+  }
+}
+
 abbr[title='required'] {
   font-size: 90%;
   text-transform: uppercase;

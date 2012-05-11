@@ -43,12 +43,10 @@ class FollowersController < ApplicationController
 
   def create
     @follower = Follower.new(params[:follower])
+    CustomerMailer.thank_you_subscribing(@follower).deliver if @follower.save
 
-    if @follower.save
-      redirect_to root_path, notice: 'You have successfully subscribed to our newsletter.'
-      CustomerMailer.thank_you_subscribing(@follower).deliver
-    else
-      render 'home/index'
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -57,10 +55,9 @@ class FollowersController < ApplicationController
     @follower.name = params[:follower][:name]
     @follower.is_subscribe = true
 
-    if @follower.save
-      redirect_to root_path, notice: 'You have successfully subscribed to our newsletter.'
-    else
-      render 'home/index'
+    @follower.save
+    respond_to do |format|
+        format.js
     end
   end
 end

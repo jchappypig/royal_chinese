@@ -36,25 +36,24 @@ describe FollowersController do
           @follower.is_subscribe.should be_false
           @follower.name.should == 'Huanhuan'
 
-          post :subscribe, follower: @follower.attributes.merge(name: 'Harrison')
+          post :subscribe, follower: @follower.attributes.merge(name: 'Harrison'), format: 'js'
           Follower.count.should == 1
           @follower = Follower.find_by_email_ignore_case(@follower.email)
           @follower.is_subscribe.should be_true
           @follower.name.should == 'Harrison'
 
-          flash[:notice].should == 'You have successfully subscribed to our newsletter.'
-          response.should redirect_to root_path
+          response.should render_template :subscribe
 
           should_not have_sent_email.from('royal_chinese@hotmail.com')
         end
 
         it "should not update follower if invalid" do
-          post :subscribe, follower: @follower.attributes.merge(name: '')
+          post :subscribe, follower: @follower.attributes.merge(name: ''), format: 'js'
           @follower = Follower.find_by_email_ignore_case(@follower.email)
           @follower.is_subscribe.should be_false
           @follower.name.should == 'Huanhuan'
 
-          response.should render_template root_path
+          response.should render_template :subscribe
         end
       end
 
@@ -62,11 +61,10 @@ describe FollowersController do
         it "should create follower and send follower thank you letter if valid" do
           Follower.count.should == 0
           follower = Factory.build(:follower)
-          post :subscribe, follower: follower.attributes
+          post :subscribe, follower: follower.attributes, format: 'js'
           Follower.count.should == 1
 
-          flash[:notice].should == 'You have successfully subscribed to our newsletter.'
-          response.should redirect_to root_path
+          response.should render_template :subscribe
 
           should have_sent_email.from('royal_chinese@hotmail.com')
           should have_sent_email.to(follower.email)
@@ -77,10 +75,10 @@ describe FollowersController do
 
         it "should not create follower if invalid" do
           Follower.count.should == 0
-          post :subscribe, follower: Factory.build(:follower, name: "").attributes
+          post :subscribe, follower: Factory.build(:follower, name: '').attributes, format: 'js'
           Follower.count.should == 0
 
-          response.should render_template root_path
+          response.should render_template :subscribe
         end
       end
     end
