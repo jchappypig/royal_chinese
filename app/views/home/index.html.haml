@@ -1,4 +1,13 @@
-= link_to image_tag('gallery_1.png', id: 'gallery')
+#myCarousel.carousel.slide
+  .carousel-inner
+    .item.active
+      %img{:alt => "", :src => "/assets/gallery_1.png"}
+    .item
+      %img{:alt => "", :src => "/assets/gallery_1.png"}
+    .item
+      %img{:alt => "", :src => "/assets/gallery_1.png"}
+  %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} ‹
+  %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›
 .row.mt20
   .span3
     = image_tag('newsletter_tag.png', id: 'newsletter_tag')
@@ -16,4 +25,4 @@
   .span4
     .right
       = image_tag('flag.png', id: 'flag')
-    = image_tag('pot.png', id: 'pot')
+    -#= image_tag('pot.png', id: 'pot')

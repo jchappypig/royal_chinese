@@ -138,10 +138,13 @@ img {
 
 }
 
-#gallery {
+#myCarousel {
   -moz-box-shadow: 0 0 15px 5px #000000;;
   -webkit-box-shadow: 0 0 15px 5px #000000;;
   box-shadow: 0 0 15px 5px #000000;
+  .carousel-control {
+    top: 80%;
+  }
 }
 
 #flag {
