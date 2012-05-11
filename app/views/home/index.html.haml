@@ -17,7 +17,7 @@
       .actions
         = f.button :submit, 'Subscribe', disable_with: 'Subscribing...', class: 'btn btn-inverse'
   .span5
-    %ul
+    %ul.posts
       = render partial: 'home/post', collection: @posts
 
   .span4

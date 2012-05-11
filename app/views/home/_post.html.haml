@@ -1,6 +1,9 @@
 %li
-  .post
-    %span.post_time
-      = post.created_at.strftime('%d %b %y')
-    %span.content
-      = post.content
+  .post.row
+    .span2.mt10
+      %i.icon-bullhorn.icon-white
+      %span.post_time
+        = post.created_at.strftime('%d %b %y')
+    .span3.mt10.mb10
+      %span.post_content
+        = post.content

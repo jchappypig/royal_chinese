@@ -34,6 +34,14 @@ body {
 
 }
 
+[class^="icon-"] {
+  background-image: image-url("/assets/glyphicons-halflings.png");
+}
+
+.icon-white {
+  background-image: image-url("/assets/glyphicons-halflings-white.png");
+}
+
 .title {
   font-family: $title-font-family;
 }
@@ -80,6 +88,8 @@ body {
 
 .mt10 { margin-top: 10px; }
 .mt20 { margin-top: 20px; }
+.mb10 { margin-bottom: 10px; }
+.mb20 { margin-bottom: 20px; }
 
 h1, h2, h3, h4, h5, h6, label {
   color: $default-font-color;
@@ -180,11 +190,22 @@ abbr[title='required'] {
   color: $accent-color-light;
   font-style: italic;
 }
+.posts {
+  list-style-type: none;
 
-.post {
-  border-bottom: 1px dotted;
-  .post_time {
-    margin-right: 10px;
+  .post {
+    border-bottom: 1px dotted;
+    .span2 {
+      width: 80px;
+      .post_time {
+        margin-right: 10px;
+        font-weight: bold;
+        color: $accent-color;
+      }
+    }
+    .post_content {
+      font-size: 1.1em;
+    }
   }
 }
 
