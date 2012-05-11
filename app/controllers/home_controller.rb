@@ -1,18 +1,14 @@
 class HomeController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:index, :our_menu, :contact_us, :about_us]
+  skip_before_filter :authenticate_user!, only: [:our_menu, :our_location]
 
   def our_menu
     @title = "Our Menu"
     @menus = Menu.all
   end
 
-  def contact_us
-    @title = "Contact Us"
+  def our_location
+    @title = "Our Location"
     @json = Address.all.to_gmaps4rails
-  end
-
-  def about_us
-    @title = "About Us"
   end
 
   def admin

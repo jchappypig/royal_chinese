@@ -20,8 +20,7 @@ RoyalChinese::Application.routes.draw do
   end
 
   root to: 'followers#new'
-  get 'about_us',  to: 'home#about_us'
-  get 'contact_us',  to: 'home#contact_us'
+  get 'our_location',  to: 'home#our_location'
   get 'our_menu', to: 'home#our_menu'
   get 'admin', to: 'home#admin', as: :user_root
 

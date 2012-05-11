@@ -14,22 +14,13 @@ describe HomeController do
       specify { assigns(:title).should == "Our Menu" }
     end
 
-    describe "GET :contact_us" do
+    describe "GET :our location" do
       before :each do
-        get :contact_us
+        get :our_location
       end
 
       specify { response.should be_success }
-      specify { assigns(:title).should == "Contact Us" }
-    end
-
-    describe "GET :about_us" do
-      before :each do
-        get :about_us
-      end
-
-      specify { response.should be_success }
-      specify { assigns(:title).should == "About Us" }
+      specify { assigns(:title).should == "Our Location" }
     end
 
     describe "GET :admin" do
