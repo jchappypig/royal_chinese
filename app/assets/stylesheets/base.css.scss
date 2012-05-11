@@ -33,6 +33,33 @@ body {
 
 }
 
+.header {
+  .logo {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+
+  .navbar{
+    margin-bottom: 10px;
+    .navbar-inner .container {
+      ul {
+        margin-top: $logo-height - 15px;
+
+        a {
+          padding-bottom: 11px;
+        }
+      }
+      .divider {
+        float: left;
+        color: $gray;
+        margin-top: 10px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
 .footer {
   border-top: 2px solid $dark-scene-bg-color;
   margin-top: 40px;
@@ -91,33 +118,6 @@ a {
 
 img {
   max-width: 100%;
-}
-
-.header {
-  .logo {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    display: inline-block;
-  }
-
-  .navbar{
-    margin-bottom: 10px;
-    .navbar-inner .container {
-      ul {
-        margin-top: $logo-height - 15px;
-
-        a {
-          padding-bottom: 11px;
-        }
-      }
-      .divider {
-        float: left;
-        color: $gray;
-        margin-top: 10px;
-        margin-left: 5px;
-      }
-    }
-  }
 }
 
 .table-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th {
@@ -227,11 +227,11 @@ abbr[title='required'] {
   #toast-container {
     position: relative;
     float: right;
-    top: -80px;
+    top: -90px;
     right: -10px;
 
     &> div {
-      width: 160px;
+      width: 151px;
     }
   }
 
