@@ -1,4 +1,3 @@
-// By: Hans Fj�llemark and John Papa
 // https://github.com/CodeSeven/toastr
 // 
 // Modified to support css styling instead of inline styling
@@ -11,6 +10,7 @@
                 tapToDismiss: true,
                 toastClass: 'toast',
                 containerId: 'toast-container',
+                containerClass: 'toast-container',
                 debug: false,
                 fadeIn: 300,
                 fadeOut: 300,
@@ -22,7 +22,7 @@
                 },
                 iconClass: 'toast-info',
                 positionClass: 'toast-top-right',
-                timeOut: 0, // Set timeOut to 0 to make it sticky
+                timeOut: 1500, // Set timeOut to 0 to make it sticky
                 titleClass: 'toast-title',
                 messageClass: 'toast-message',
                 dependencyElement: 'body'
@@ -121,12 +121,13 @@
             },
 
             getContainer = function (options) {
-                var $container = $('#' + options.containerId)
+                var $container = $('.' + options.containerClass)
 
                 if ($container.length)
                     return $container
 
                 $container = $('<div/>')
+                    .attr('class', options.containerClass)
                     .attr('id', options.containerId)
                     .addClass(options.positionClass)
 

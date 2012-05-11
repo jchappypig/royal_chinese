@@ -1,7 +1,6 @@
 $(".#{@menu.id}.num_of_favorites").html("#{@menu.favorites.count}");
 - if @favorite.errors.any?
-  toastr.options = {dependencyElement: ".#{@menu.id}.num_of_favorites"};
+  toastr.options = {dependencyElement: ".#{@menu.id}.num_of_favorites", containerClass: ".#{@menu.id}.toast-container"};
   toastr.warning("Try again tomorrow!", 'You have marked this.');
-
 
 
