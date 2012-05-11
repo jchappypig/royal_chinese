@@ -21,6 +21,25 @@ body {
 
   font-size: 13px;
   color: $default-font-color;
+
+  #content {
+    min-height:100%;
+    position:relative;
+
+    .main {
+      padding-bottom:134px;
+    }
+  }
+
+}
+
+.footer {
+  border-top: 2px solid $dark-scene-bg-color;
+  margin-top: 40px;
+  background: $dark-scene-bg-color;
+  position:absolute;
+  bottom:0;
+  width:100%;
 }
 
 .cap {
@@ -48,12 +67,6 @@ a {
   &:hover {
     color: $accent-color-light;
   }
-}
-
-.footer {
-  border-top: 2px solid $dark-scene-bg-color;
-  margin-top: 40px;
-  background: $dark-scene-bg-color;
 }
 
 .accent {
