@@ -10,6 +10,7 @@ $dark-scene-bg-color: #2C2C2C;
 $dark-scene-bg-color-dark: #333;
 $dark-scene-bg-color-light: #444;
 $logo-height: 54px;
+$title-font-family: Lato, Helvetica, Arial, sans-serif;
 
 body {
   background-color: $bg-color-dark;
@@ -31,6 +32,10 @@ body {
     }
   }
 
+}
+
+.title {
+  font-family: $title-font-family;
 }
 
 .header {
