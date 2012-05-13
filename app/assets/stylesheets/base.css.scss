@@ -70,6 +70,12 @@ body {
         margin-left: 5px;
       }
     }
+
+    .nav .active > a, .nav .active > a:hover {
+      color: $accent-color;
+      text-decoration: none;
+      background-color: transparent;
+    }
   }
 }
 

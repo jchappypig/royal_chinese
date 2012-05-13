@@ -1,3 +1,10 @@
+- if controller.controller_name == 'followers' && controller.action_name == 'new'
+  - current_active_menu = 'home'
+- elsif controller.controller_name == 'home' && controller.action_name == 'our_menu'
+  - current_active_menu = 'our_menu'
+- else
+  - current_active_menu = 'our_location'
+
 .row
   .navbar
     .navbar-inner
@@ -5,15 +12,15 @@
         .logo.left
           = link_to image_tag("logo.png"), root_path
         %ul.nav.cap.pull-right
-          %li.active
+          %li{class: "#{current_active_menu == 'home'? 'active': ''}"}
             = link_to "Home", root_path
           .divider
             |
-          %li
+          %li{class: "#{current_active_menu == 'our_menu'? 'active': ''}"}
             = link_to "Our Menu", our_menu_path
           .divider
             |
-          %li
+          %li{class: "#{current_active_menu == 'our_location'? 'active': ''}"}
             = link_to "Our Location", our_location_path
           - if user_signed_in?
             .divider
