@@ -1,4 +1,18 @@
-%h1 Contact Us
-%p
-  = gmaps(:markers => {:data => @json}, :map_options => { :auto_adjust => true, auto_zoom: false, :zoom => 16 },
+.page-header
+  %h1.title Our Location
+.row
+  .span8
+    = gmaps(:markers => {:data => @json}, :map_options => { :auto_adjust => true, auto_zoom: false, :zoom => 16 },
           :last_map => true)
+  .span3
+    %h3.title You can contact us on
+    .mt20
+    %p
+      %i.icon-circle-arrow-right.icon-white
+      Phone: (02) 4226 9853
+    %p
+      %i.icon-circle-arrow-right.icon-white
+      Email: royal_chinese@hotmail.com
+    %p
+      %i.icon-circle-arrow-right.icon-white
+      Address: 35 Flinders St., Wollongong, NSW 2500
