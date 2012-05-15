@@ -20,7 +20,6 @@
     %ul.posts
       = render partial: 'home/post', collection: @posts
 
-  .span4
-    .right
-      = image_tag('flag.png', id: 'flag')
+  .span4.overflow-auto
+    = image_tag('flag.png', id: 'flag')
     = image_tag('pot.png', id: 'pot')

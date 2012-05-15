@@ -181,14 +181,16 @@ img {
 }
 
 #flag {
-  position: relative;
+  position: absolute;
   margin-top: -220px;
-  margin-right: 30px;
+  margin-left: 40px;
+  float: right;
 }
 
 #pot {
-  position: relative;
+  position: absolute;
   margin-top: -40px;
+  float: right;
 }
 
 #newsletter_tag {
@@ -319,4 +321,8 @@ abbr[title='required'] {
     text-decoration: none;
     background-color: $dark-scene-bg-color-light;
   }
+}
+
+.overflow-auto{
+  overflow:auto;
 }
