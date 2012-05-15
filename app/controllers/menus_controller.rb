@@ -45,6 +45,6 @@ class MenusController < ApplicationController
   end
 
   def download
-    send_file("#{Rails.root}/app/assets/images/test.pdf", :filename => "royal_chinese_menu.pdf", :type => "application/pdf")
+    send_file("#{Rails.root}/app/assets/images/test.pdf", filename: 'royal_chinese_menu.pdf', type: 'application/pdf')
   end
 end
