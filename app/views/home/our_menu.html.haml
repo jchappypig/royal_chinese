@@ -1,4 +1,4 @@
-= button_to 'Download PDF Menu',root_path, class: 'download_menu_btn'
+= link_to 'Download PDF Menu','/assets/royal_chinese_menu.pdf', class: 'download_menu_btn btn', method: :get, target: :blank
 
 .page-header
   %h1.title Our menu
@@ -16,9 +16,4 @@
     #bbq.tab-pane
       %ul.thumbnails
         = render partial: 'home/menu', collection: Menu.find_all_by_dish_type('BBQ')
-
-
-:javascript
-  $(function(){
-  })
 

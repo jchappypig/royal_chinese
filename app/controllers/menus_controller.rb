@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  skip_before_filter :authenticate_user!, only: [:show]
+  skip_before_filter :authenticate_user!, only: [:show, :download]
 
   def index
     @menus = Menu.paginate(page: params[:page])
@@ -42,5 +42,9 @@ class MenusController < ApplicationController
     @menu.destroy
 
     redirect_to menus_url
+  end
+
+  def download
+    send_file("#{Rails.root}/app/assets/images/test.pdf", :filename => "royal_chinese_menu.pdf", :type => "application/pdf")
   end
 end

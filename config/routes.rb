@@ -10,6 +10,9 @@ RoyalChinese::Application.routes.draw do
 
   resources :menus do
     resources :favorites, only: [:create]
+    collection do
+      get 'download'
+    end
   end
   resources :followers, only: [:index, :destroy] do
     collection do
