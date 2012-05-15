@@ -152,11 +152,23 @@ img {
     max-width: none;
   }
 
+  .restaurant_name{
+    color: #000000;
+    font-size: 1.2em;
+  }
+
   .gmaps4rails_map {
     width: $map-width;
     height: $map-height;
   }
 
+  .gmnoprint {
+    display: none;
+  }
+
+  .landmark {
+    width: 100px;
+  }
 }
 
 #myCarousel {
