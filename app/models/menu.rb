@@ -7,8 +7,8 @@ class Menu < ActiveRecord::Base
   validates :category, presence: true, inclusion: { in: CATEGORIES }
   validates :dish_type, presence: true, inclusion: { in: DISH_TYPES}
 
-  has_attached_file :image, { styles: { thumbnail: '160x120>',  medium: '260x180>', large: '360x268>' },
-                    default_url: '/assets/images/rails.png',
+  has_attached_file :image, { styles: { thumbnail: '260x180>', large: '360x268>' },
+                    default_url: '/assets/default_menu.png',
                     url: '/assets/images/menus/:id/:style/:basename.:extension',
                     path: ':rails_root/public/assets/images/menus/:id/:style/:basename.:extension' }
                     .merge(PAPERCLIP_STORAGE_OPTIONS)
