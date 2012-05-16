@@ -75,7 +75,7 @@ describe MenusController do
 
       it "should not save menu if invalid" do
         Menu.count.should == 0
-        post :create, menu: Factory.build(:menu, name: "").attributes
+        post :create, menu: Factory.build(:menu, name: '').attributes
         Menu.count.should == 0
 
         response.should render_template :new

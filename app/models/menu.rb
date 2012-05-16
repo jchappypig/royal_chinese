@@ -1,5 +1,5 @@
 class Menu < ActiveRecord::Base
-  DISH_TYPES = [:stir_fried, :hotpot]
+  DISH_TYPES = ['Stir Fried', 'Hotpot']
 
   validates :name, presence: true
   validates :category, presence: true
