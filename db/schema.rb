@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320072720) do
+ActiveRecord::Schema.define(:version => 20120516061052) do
 
   create_table "addresses", :force => true do |t|
     t.float    "latitude"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20120320072720) do
     t.string   "name"
     t.string   "category"
     t.float    "price"
-    t.string   "dish_type"
+    t.string   "dish_type",          :default => "stir_fried"
     t.boolean  "is_vegetarian"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

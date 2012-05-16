@@ -3,7 +3,9 @@ class HomeController < ApplicationController
 
   def our_menu
     @title = "Our Menu"
-    @menus = Menu.all
+
+    dish_type = params[:dish_type] || 'Hotpot'
+    @menus = Menu.find_by_dish_type(dish_type)
   end
 
   def our_location
