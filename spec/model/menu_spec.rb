@@ -17,5 +17,13 @@ describe Menu do
     Menu::DISH_TYPES.each do |dish_type|
       it { should allow_value(dish_type).for(:dish_type)}
     end
+
+    Menu::CATEGORIES.each do |category|
+      it { should allow_value(category).for(:category)}
+    end
+
+    it { should_not allow_value('Other').for(:category)}
+    it { should_not allow_value('Other').for(:dish_type)}
+
   end
 end

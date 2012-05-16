@@ -1,9 +1,10 @@
 class Menu < ActiveRecord::Base
   DISH_TYPES = ['Stir Fried', 'Hotpot']
+  CATEGORIES = ['Meat', 'Vegetable', 'Seafood']
 
   validates :name, presence: true
-  validates :category, presence: true
   validates :price, presence: true
+  validates :category, presence: true, inclusion: { in: CATEGORIES }
   validates :dish_type, presence: true, inclusion: { in: DISH_TYPES}
 
   has_attached_file :image, { styles: { thumbnail: '160x120>',  medium: '260x180>', large: '360x268>' },
