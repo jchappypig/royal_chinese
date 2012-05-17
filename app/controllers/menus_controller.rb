@@ -23,9 +23,6 @@ class MenusController < ApplicationController
     if @menu.save
       redirect_to @menu, notice: 'Menu was successfully created.'
     else
-      errors = @menu.errors.full_messages
-      dish_type = @menu.dish_type
-      dish_type_class = dish_type.class
       render :new
     end
   end
