@@ -16,9 +16,4 @@ class Menu < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
   has_many :favorites
-  after_initialize :init
-
-  def init
-    self.dish_type ||= DISH_TYPES.first
-  end
 end
