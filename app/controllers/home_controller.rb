@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def our_menu
     @title = 'Our Menu'
 
-    dish_type = params[:dish_type] || 'Hotpot'
+    dish_type = params[:dish_type] || Menu::DISH_TYPES.first
     @menus = Menu.where('dish_type = ?', dish_type).paginate(page: params[:page], per_page: 9)
   end
 
