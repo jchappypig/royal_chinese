@@ -7,11 +7,35 @@ describe HomeController do
   context "not authenticated user" do
     describe "GET 'our menu'" do
       before :each do
-        get :our_menu
+        dish_type_one = Menu::DISH_TYPES.first
+        dish_type_two = Menu::DISH_TYPES.last
+        @dish_type_one_menu_1 = Factory(:menu, dish_type: dish_type_one)
+        @dish_type_one_menu_2 = Factory(:menu, dish_type: dish_type_one)
+        @dish_type_two_menu_1 = Factory(:menu, dish_type: dish_type_two)
+        @dish_type_two_menu_2 = Factory(:menu, dish_type: dish_type_two)
       end
 
-      specify { response.should be_success }
-      specify { assigns(:title).should == "Our Menu" }
+      context "no dish type is specified" do
+        it "should get menu from the first available dish type" do
+          get :our_menu
+
+          assigns(:menus).should include @dish_type_one_menu_1, @dish_type_one_menu_2
+          assigns(:menus).should_not include @dish_type_two_menu_1, @dish_type_two_menu_2
+
+          response.should be_success
+          assigns(:title).should == 'Our Menu'
+        end
+      end
+
+      context "dish type is specified" do
+        it "should get menus from specified dish type" do
+          get :our_menu, dish_type: @dish_type_two_menu_1.dish_type
+
+          assigns(:menus).should_not include @dish_type_one_menu_1, @dish_type_one_menu_2
+          assigns(:menus).should include @dish_type_two_menu_1, @dish_type_two_menu_2
+        end
+      end
+
     end
 
     describe "GET :our location" do
