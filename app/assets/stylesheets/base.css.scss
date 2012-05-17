@@ -285,21 +285,25 @@ abbr[title='required'] {
   .menu_favorites {
     padding: 10px 10px;
     color: $dark-scene-bg-color;
-  }
 
-  #toast-container {
-    position: relative;
-    float: right;
-    top: -90px;
-    right: -10px;
-
-    &> div {
-      width: 151px;
+    .toast-dependency-element {
+      position: relative;
     }
-  }
 
-  .btn {
-    margin-left: 3px;
+    #toast-container {
+      position: absolute;
+      float: right;
+      top: -90px;
+      right: -10px;
+
+      &> div {
+        width: 151px;
+      }
+    }
+
+    .btn {
+      margin-left: 3px;
+    }
   }
 
 }

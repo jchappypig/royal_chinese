@@ -15,4 +15,7 @@
       = link_to 'Me too', menu_favorites_path(menu), method: :post, remote: true, class: 'btn btn-inverse',
                                                      id: "add_favorite_btn_#{menu.id}"
 
+      .toast-dependency-element{class: "#{menu.id}"}
+
+
 
