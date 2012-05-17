@@ -5,15 +5,12 @@
 
 .tabbable.tabs-left
   %ul.nav.nav-tabs
-    %li.active
-      %a{"data-toggle" => "tab", href: "#hotpot"} Hotpot
-    %li
-      %a{"data-toggle" => "tab", href: "#bbq"} BBQ
+    - Menu::DISH_TYPES.each do |dish_type|
+      %li{ class: "#{dish_type == @menus.first.dish_type ? 'active' : ''}"}
+        = link_to dish_type, our_menu_path(dish_type: dish_type), html: {'data-toggle' => 'tab'}
   .tab-content
-    #hotpot.tab-pane.active
+    .tab-pane.active
       %ul.thumbnails
-        = render partial: 'home/menu', collection: Menu.find_all_by_dish_type('Hotpot')
-    #bbq.tab-pane
-      %ul.thumbnails
-        = render partial: 'home/menu', collection: Menu.find_all_by_dish_type('BBQ')
+        = render partial: 'home/menu', collection: @menus
+      = will_paginate @menus
 

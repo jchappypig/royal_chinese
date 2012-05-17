@@ -3,9 +3,9 @@
     = f.input :name
     = image_tag @menu.image.url(:thumbnail)
     = f.file_field :image
-    = f.input :category, collection: Menu::CATEGORIES.map { |category| category.capitalize}, default: Menu::CATEGORIES.first
+    = f.input :category, collection: Menu::CATEGORIES.map { |category| category}, default: Menu::CATEGORIES.first
     = f.input :price
-    = f.input :dish_type, as: :select, collection: Menu::DISH_TYPES.map { |dish_type| dish_type.capitalize}, default: Menu::DISH_TYPES.first
+    = f.input :dish_type, as: :select, collection: Menu::DISH_TYPES.map { |dish_type| dish_type}, default: Menu::DISH_TYPES.first
     = f.input :is_vegetarian
 
   .actions

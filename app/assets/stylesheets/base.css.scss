@@ -306,11 +306,22 @@ abbr[title='required'] {
   top: 20px;
 }
 
-.tabs-left > .nav-tabs .active > a, .tabs-left > .nav-tabs .active > a:hover {
-  color: $accent-color;
-  background-color: $dark-scene-bg-color;
-  font-family: $title-font-family;
-  font-size: 1.2em;
+.tabs-left > .nav-tabs, .pagination {
+
+  a {
+    color: #ffffff;
+
+    &:hover {
+      background-color: $dark-scene-bg-color-light;
+    }
+  }
+
+  .active > a, .active > a:hover {
+    color: $accent-color;
+    background-color: $dark-scene-bg-color;
+    font-family: $title-font-family;
+    font-size: 1.2em;
+  }
 }
 
 .nav > li > a{
