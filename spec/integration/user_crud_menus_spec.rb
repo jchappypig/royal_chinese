@@ -18,7 +18,7 @@ describe "user CRUD menus" do
 
     page.should have_content 'New menu'
     fill_in 'menu_name', with: 'Cabbage'
-    fill_in 'menu_category', with: 'Vegetable'
+    select 'Vegetable', from: 'menu_category'
     fill_in 'menu_price', with: '1.5'
     select 'Hotpot', from: 'menu_dish_type'
     check 'menu_is_vegetarian'
