@@ -15,4 +15,5 @@
 #== require toastr
 #== require rails.validations
 #== require jquery.pjax
+#== require pjax
 #== require_tree .

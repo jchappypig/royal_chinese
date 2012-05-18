@@ -18,7 +18,7 @@ $title-font-family: Lato, Helvetica, Arial, sans-serif;
 
 body {
   background-color: $bg-color-dark;
-  @include background(radial-gradient($bg-color-light, $bg-color-dark 70%));
+  @include background(radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%));
 
   font-size: 13px;
   color: $default-font-color;
