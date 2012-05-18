@@ -145,6 +145,10 @@ img {
   background-color: $bg-color-dark;
 }
 
+.table tbody tr:hover td, .table tbody tr:hover th {
+  background-color: $dark-scene-bg-color;
+}
+
 .map_container {
   width: $map-width;
   color: #000000;
