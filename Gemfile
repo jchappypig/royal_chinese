@@ -28,6 +28,7 @@ gem 'email_validator', :require => 'email_validator/strict'
 gem 'delayed_job_active_record'
 gem 'sendgrid'
 gem 'bootstrap-will_paginate'
+gem 'rack-pjax'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false

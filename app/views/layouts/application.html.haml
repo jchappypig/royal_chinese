@@ -1,19 +1,19 @@
 %html
-%head
-  %title
-    #{company_full_name} | #{@title}
-  = yield :head
-  = stylesheet_link_tag    "application"
-  = javascript_include_tag "application"
-  = csrf_meta_tags
-  %link{rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Lato" }
-%body
-  #content
-    .header
-      = render partial: 'layouts/header'
-    .main
-      .container
-        = yield
-    .footer
-      = render partial: 'layouts/footer'
-  = yield :scripts
+  %head
+    %title
+      #{company_full_name} | #{h yield(:title)}
+    = yield :head
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %link{rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Lato" }
+  %body
+    #content
+      .header
+        = render partial: 'layouts/header'
+      .main
+        .container
+          = yield
+      .footer
+        = render partial: 'layouts/footer'
+    = yield :scripts

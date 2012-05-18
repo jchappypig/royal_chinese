@@ -23,7 +23,6 @@ describe HomeController do
           assigns(:menus).should_not include @dish_type_two_menu_1, @dish_type_two_menu_2
 
           response.should be_success
-          assigns(:title).should == 'Our Menu'
         end
       end
 
@@ -44,7 +43,6 @@ describe HomeController do
       end
 
       specify { response.should be_success }
-      specify { assigns(:title).should == "Our Location" }
     end
 
     describe "GET :admin" do

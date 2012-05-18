@@ -50,5 +50,7 @@ module RoyalChinese
 
     # for customize 404 page
     config.exceptions_app = self.routes
+
+    config.middleware.use Rack::Pjax
   end
 end
