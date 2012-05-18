@@ -8,12 +8,12 @@
     = csrf_meta_tags
     %link{rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Lato" }
   %body
-    #content
-      .header
-        = render partial: 'layouts/header'
-      .main
-        .container
-          = yield
-      .footer
-        = render partial: 'layouts/footer'
+    .header
+      = render partial: 'layouts/header'
+    .main#main
+      .container
+        = yield
+      #main_footer
+    .footer#footer
+      = render partial: 'layouts/footer'
     = yield :scripts

@@ -14,6 +14,7 @@ $title-font-family: Lato, Helvetica, Arial, sans-serif;
 
 @import 'compass/css3/images';
 @import 'compass/css3/box-shadow';
+@import 'compass/layout/sticky-footer';
 
 body {
   background-color: $bg-color-dark;
@@ -21,16 +22,6 @@ body {
 
   font-size: 13px;
   color: $default-font-color;
-
-  #content {
-    min-height:100%;
-    position:relative;
-
-    .main {
-      padding-bottom:134px;
-    }
-  }
-
 }
 
 [class^="icon-"] {
@@ -78,13 +69,12 @@ body {
   }
 }
 
+@include sticky-footer(100px);
+
 .footer {
   border-top: 2px solid $dark-scene-bg-color;
   margin-top: 40px;
   background: $dark-scene-bg-color;
-  position:absolute;
-  bottom:0;
-  width:100%;
 }
 
 .cap {
@@ -174,6 +164,9 @@ img {
   }
 }
 
+$home-layout:smart;
+@import 'home/*.png';
+
 #myCarousel {
   @include box-shadow(#000000 0px 0px 15px 5px);
   .carousel-control {
@@ -181,21 +174,38 @@ img {
   }
 }
 
-#flag {
+.flag { @include home-sprite(flag); }
+.pot { @include home-sprite(pot); }
+.newsletter_tag { @include home-sprite(newsletter_tag); }
+.gallery_1 { @include home-sprite(gallery_1); }
+.gallery_2 { @include home-sprite(gallery_2); }
+
+.gallery_1, .gallery_2 {
+  width: 940px;
+  height: 178px;
+}
+
+.newsletter_tag {
+  display: inline-block;
+  width: 212px;
+  height: 75px;
+}
+
+.flag {
   position: absolute;
   margin-top: -220px;
   margin-left: 40px;
   float: right;
+  width: 200px;
+  height: 112px;
 }
 
-#pot {
+.pot {
   position: absolute;
   margin-top: -40px;
   float: right;
-}
-
-#newsletter_tag {
-  display: inline-block;
+  width: 300px;
+  height: 178px;
 }
 
 #new_follower{

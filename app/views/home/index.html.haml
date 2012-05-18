@@ -2,14 +2,14 @@
 #myCarousel.carousel.slide
   .carousel-inner
     .item.active
-      %img{:alt => "", :src => "/assets/gallery_1.png"}
+      .gallery_1
     .item
-      %img{:alt => "", :src => "/assets/gallery_2.png"}
+      .gallery_2
   %a.left.carousel-control{"data-slide" => "prev", :href => "#myCarousel"} ‹
   %a.right.carousel-control{"data-slide" => "next", :href => "#myCarousel"} ›
 .row.mt20
   .span3
-    = image_tag('newsletter_tag.png', id: 'newsletter_tag')
+    .newsletter_tag
     = simple_form_for(@follower, url: subscribe_followers_path, html: {class: 'form-vertical'}, remote: true) do |f|
       .inputs
         = f.input :name
@@ -22,5 +22,5 @@
       = render partial: 'home/post', collection: @posts
 
   .span4.overflow-auto
-    = image_tag('flag.png', id: 'flag')
-    = image_tag('pot.png', id: 'pot')
+    .flag
+    .pot
