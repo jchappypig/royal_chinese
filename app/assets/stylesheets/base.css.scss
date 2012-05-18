@@ -12,13 +12,12 @@ $dark-scene-bg-color-light: #444;
 $logo-height: 54px;
 $title-font-family: Lato, Helvetica, Arial, sans-serif;
 
+@import 'compass/css3/images';
+@import 'compass/css3/box-shadow';
+
 body {
   background-color: $bg-color-dark;
-  background-image: radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
-  background-image: -o-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
-  background-image: -moz-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
-  background-image: -webkit-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
-  background-image: -ms-radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%);
+  @include background(radial-gradient($bg-color-light, $bg-color-dark 70%));
 
   font-size: 13px;
   color: $default-font-color;
@@ -176,9 +175,7 @@ img {
 }
 
 #myCarousel {
-  -moz-box-shadow: 0 0 15px 5px #000000;;
-  -webkit-box-shadow: 0 0 15px 5px #000000;;
-  box-shadow: 0 0 15px 5px #000000;
+  @include box-shadow(#000000 0px 0px 15px 5px);
   .carousel-control {
     top: 75%;
   }
@@ -256,12 +253,6 @@ abbr[title='required'] {
   .menu_name {
     background-color: $dark-scene-bg-color;
     border-top: 2px solid $dark-scene-bg-color;
-    -webkit-border-top-left-radius: 1px;
-    -webkit-border-top-right-radius: 1px;
-    -moz-border-top-left-radius: 1px;
-    -moz-border-top-right-radius: 1px;
-    border-top-left-radius: 1px;
-    border-top-right-radius: 1px;
 
     .menu_name_separator {
       float: left;
@@ -278,9 +269,7 @@ abbr[title='required'] {
   }
 
   .menu_img {
-    -moz-box-shadow: 0 0 5px 0px #000000;;
-    -webkit-box-shadow: 0 0 5px 0px #000000;;
-    box-shadow: 0 0 5px 0px #000000;
+    @include box-shadow(#000000 0 0 5px 0);
     height: 150px;
     width: 216px;
     overflow: hidden;
