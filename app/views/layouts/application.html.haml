@@ -3,17 +3,18 @@
     %title
       #{company_full_name} | #{h yield(:title)}
     = yield :head
-    = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
-    %link{rel: "stylesheet", type: "text/css", href: "http://fonts.googleapis.com/css?family=Lato" }
+    %link{rel: 'stylesheet', type: 'text/css', href: 'http://fonts.googleapis.com/css?family=Lato' }
   %body
-    .header
-      = render partial: 'layouts/header'
-    .main#main
-      .container
-        = yield
-      #main_footer
+    #root
+      .header
+        = render partial: 'layouts/header'
+      .main
+        .container
+          = yield
+      #root_footer
     .footer#footer
       = render partial: 'layouts/footer'
     = yield :scripts

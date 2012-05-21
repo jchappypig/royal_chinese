@@ -73,8 +73,11 @@ body {
 
 .footer {
   border-top: 2px solid $dark-scene-bg-color;
-  margin-top: 40px;
   background: $dark-scene-bg-color;
+}
+
+#root #root_footer {
+  margin-top: 40px;
 }
 
 .cap {
