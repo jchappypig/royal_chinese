@@ -1,0 +1,49 @@
+@import 'base.css.scss';
+
+$map-width: 600px;
+$map-height: 400px;
+
+.map_container {
+  width: $map-width;
+  color: #000000;
+  img {
+    max-width: none;
+  }
+
+  .restaurant_name{
+    color: #000000;
+    font-size: 1.2em;
+  }
+
+  .gmaps4rails_map {
+    width: $map-width;
+    height: $map-height;
+  }
+
+  .gmnoprint {
+    display: none;
+  }
+
+  .landmark {
+    width: 100px;
+  }
+}
+
+.posts {
+  list-style-type: none;
+
+  .post {
+    border-bottom: 1px dotted;
+    .span2 {
+      width: 80px;
+      .post_time {
+        margin-right: 10px;
+        font-weight: bold;
+        color: $accent-color;
+      }
+    }
+    .post_content {
+      font-size: 1.1em;
+    }
+  }
+}

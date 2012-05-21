@@ -1,0 +1,65 @@
+@import 'base.css.scss';
+@import 'compass/css3/box-shadow';
+
+.thumbnail{
+  padding: 0px;
+  border-color: $dark-scene-bg-color;
+  border-width: 2px;
+  background-color:$default-font-color;
+
+  .menu_name {
+    background-color: $dark-scene-bg-color;
+    border-top: 2px solid $dark-scene-bg-color;
+
+    .menu_name_separator {
+      float: left;
+      background-color: $dark-scene-bg-color-light;
+      width: 10px;
+      height: 30px;
+    }
+
+    .menu_name_text {
+      margin: 7px 0 0 20px;
+      font-size: 1.2em;
+      height: 30px;
+    }
+  }
+
+  .menu_img {
+    @include box-shadow(#000000 0 0 5px 0);
+    height: 150px;
+    width: 216px;
+    overflow: hidden;
+  }
+
+  .menu_favorites {
+    padding: 10px 10px;
+    color: $dark-scene-bg-color;
+
+    .toast-dependency-element {
+      position: relative;
+    }
+
+    #toast-container {
+      position: absolute;
+      float: right;
+      top: -90px;
+      right: -10px;
+
+      &> div {
+        width: 151px;
+      }
+    }
+
+    .btn {
+      margin-left: 3px;
+    }
+  }
+
+}
+
+.download_menu_btn {
+  float: right;
+  position: relative;
+  top: 20px;
+}

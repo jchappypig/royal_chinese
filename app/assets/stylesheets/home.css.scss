@@ -1,0 +1,60 @@
+@import 'compass/css3/images';
+@import 'compass/css3/box-shadow';
+
+$home-layout:smart;
+@import 'home/*.png';
+
+#myCarousel {
+  @include box-shadow(#000000 0px 0px 15px 5px);
+  .carousel-control {
+    top: 75%;
+  }
+}
+
+.flag { @include home-sprite(flag); }
+.pot { @include home-sprite(pot); }
+.newsletter_tag { @include home-sprite(newsletter_tag); }
+.gallery_1 { @include home-sprite(gallery_1); }
+.gallery_2 { @include home-sprite(gallery_2); }
+
+.gallery_1, .gallery_2 {
+  width: 940px;
+  height: 178px;
+}
+
+.newsletter_tag {
+  display: inline-block;
+  width: 212px;
+  height: 75px;
+}
+
+.flag {
+  position: absolute;
+  margin-top: -220px;
+  margin-left: 40px;
+  float: right;
+  width: 200px;
+  height: 112px;
+}
+
+.pot {
+  position: absolute;
+  margin-top: -40px;
+  float: right;
+  width: 300px;
+  height: 178px;
+}
+
+#new_follower{
+
+  #toast-container {
+    position: relative;
+    float: right;
+    top: -250px;
+    left: -10px;
+
+    &> div {
+      width: 151px;
+    }
+  }
+}

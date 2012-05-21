@@ -1,0 +1,155 @@
+@import 'base.css.scss';
+@import 'compass/layout/sticky-footer';
+
+body {
+  background-color: $bg-color-dark;
+  @include background(radial-gradient(50% 50%, circle closest-corner, $bg-color-light, $bg-color-dark 70%));
+
+  font-size: 13px;
+  color: $default-font-color;
+}
+
+[class^="icon-"] {
+  background-image: image-url("/assets/glyphicons-halflings.png");
+}
+
+.icon-white {
+  background-image: image-url("/assets/glyphicons-halflings-white.png");
+}
+
+.title {
+  font-family: $title-font-family;
+}
+
+.header {
+  .logo {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+
+  .navbar{
+    margin-bottom: 10px;
+    .navbar-inner .container {
+      ul {
+        margin-top: $logo-height - 15px;
+
+        a {
+          padding-bottom: 11px;
+        }
+      }
+      .divider {
+        float: left;
+        color: $gray;
+        margin-top: 10px;
+        margin-left: 5px;
+      }
+    }
+
+    .nav .active > a, .nav .active > a:hover {
+      color: $accent-color;
+      text-decoration: none;
+      background-color: transparent;
+    }
+  }
+}
+
+@include sticky-footer(100px);
+
+.footer {
+  border-top: 2px solid $dark-scene-bg-color;
+  background: $dark-scene-bg-color;
+}
+
+#root #root_footer {
+  margin-top: 40px;
+}
+
+.cap {
+  text-transform: UPPERCASE;
+}
+
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mb10 { margin-bottom: 10px; }
+.mb20 { margin-bottom: 20px; }
+
+h1, h2, h3, h4, h5, h6, label { color: $default-font-color; }
+
+input, textarea, select, .uneditable-input { height: auto; }
+
+table { font-size: 12px; }
+
+a {
+  color: $accent-color;
+
+  &:hover {
+    color: $accent-color-light;
+  }
+}
+
+.accent { color: $accent-color; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+.container { width: 940px; }
+
+.navbar .container { width: 940px; }
+
+img { max-width: 100%; }
+
+.table-striped tbody tr:nth-child(odd) td, .table-striped tbody tr:nth-child(odd) th {
+  background-color: $bg-color-dark;
+}
+
+.table tbody tr:hover td, .table tbody tr:hover th {
+  background-color: $dark-scene-bg-color;
+}
+
+abbr[title='required'] {
+  font-size: 90%;
+  text-transform: uppercase;
+  color: $accent-color;
+  border-bottom: none;
+  cursor: default;
+}
+
+.control-group.error > label, .control-group.error .help-inline {
+  vertical-align: baseline;
+  color: $accent-color-light;
+  font-style: italic;
+}
+
+.tabs-left > .nav-tabs, .pagination {
+
+  a {
+    color: #ffffff;
+
+    &:hover {
+      background-color: $dark-scene-bg-color-light;
+    }
+  }
+
+  .active > a, .active > a:hover {
+    color: $accent-color;
+    background-color: $dark-scene-bg-color;
+    font-family: $title-font-family;
+    font-size: 1.2em;
+  }
+}
+
+.nav > li > a{
+  font-family: $title-font-family;
+  font-size: 1.2em;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $dark-scene-bg-color-light;
+  }
+}
+
+.overflow-auto{
+  overflow:auto;
+}
