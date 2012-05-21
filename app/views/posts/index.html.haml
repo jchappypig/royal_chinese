@@ -1,4 +1,7 @@
-%h1 Listing posts
+- content_for :title, 'Posts'
+
+.page-header
+  %h1 Listing posts
 - unless @posts.blank?
   = table_for(@posts) do  |table|
     = table.data  actions: :all do

@@ -1,4 +1,7 @@
-%h1 Listing followers
+- content_for :title, 'Followers'
+
+.page-header
+  %h1 Listing followers
 - if @followers.any?
   = table_for(@followers) do  |table|
     = table.data :actions => [:destroy]

@@ -1,6 +1,7 @@
 - content_for :title, 'Our Location'
+
 .page-header
-  %h1.title Our Location
+  %h1 Our Location
 .row
   .span8
     = gmaps(:markers => {:data => @json}, :map_options => { :auto_adjust => true, auto_zoom: false, :zoom => 16 },

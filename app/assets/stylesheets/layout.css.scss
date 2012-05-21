@@ -74,11 +74,16 @@ body {
 .mb10 { margin-bottom: 10px; }
 .mb20 { margin-bottom: 20px; }
 
-h1, h2, h3, h4, h5, h6, label { color: $default-font-color; }
+h1, h2, h3, h4, h5, h6, label,.table th {
+  color: $default-font-color;
+  font-family: $title-font-family;
+}
 
 input, textarea, select, .uneditable-input { height: auto; }
 
-table { font-size: 12px; }
+.table th, .table td {
+   line-height: 30px;
+}
 
 a {
   color: $accent-color;
@@ -106,6 +111,10 @@ img { max-width: 100%; }
 
 .table tbody tr:hover td, .table tbody tr:hover th {
   background-color: $dark-scene-bg-color;
+}
+
+.table td {
+  font-size: 14px;
 }
 
 abbr[title='required'] {

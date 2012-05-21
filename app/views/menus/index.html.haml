@@ -1,4 +1,7 @@
-%h1 Listing menus
+- content_for :title, 'Menus'
+
+.page-header
+  %h1 Listing menus
 - unless @menus.blank?
   = table_for(@menus) do |table|
     = table.data  :actions => :all do
