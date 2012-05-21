@@ -1,21 +1,27 @@
+- content_for :title, 'Menu Details'
+
+.page-header
+  %h1 Menu Details
 %p
-  %b Name:
+  %strong.title Name:
   = @menu.name
 %p
   = image_tag @menu.image.url(:large)
 %p
-  %b Category:
+  %strong.title Category:
   = @menu.category
 %p
-  %b Price:
+  %strong.title Price:
   = @menu.price
 %p
-  %b Dish type:
+  %strong.title Dish type:
   = @menu.dish_type
 %p
-  %b Is vegetarian:
+  %strong.title Is vegetarian:
   = @menu.is_vegetarian
 
 = link_to 'Edit', edit_menu_path(@menu)
 \|
 = link_to 'Back', menus_path
+\|
+= link_to 'New Menu', new_menu_path

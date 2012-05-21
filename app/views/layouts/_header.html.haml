@@ -32,9 +32,10 @@
             %li
               = link_to "Logout", destroy_user_session_path, method: :delete
 
-- unless alert.nil?
-  .alert.alert-error
-    = alert
-- unless notice.nil?
-  .alert.alert-success
-    = notice
+.container
+  - unless alert.nil?
+    .alert.alert-error
+      = alert
+  - unless notice.nil?
+    .alert.alert-success
+      = notice

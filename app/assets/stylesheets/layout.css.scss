@@ -162,3 +162,8 @@ abbr[title='required'] {
 .overflow-auto{
   overflow:auto;
 }
+
+.well {
+  @include opacity(0.8);
+  color: $dark-scene-bg-color-dark;
+}
