@@ -25,3 +25,10 @@
       = simple_form_for @post, url: broadcast_post_path(@post) do  |f|
         .actions
           = f.button :submit, 'Broadcast', disable_with: 'Sending...'
+  .span6.broadcast_preview.right
+    %h3.title Broadcast Preview
+    .mt10
+    - @content = @post.content
+    = render 'share/subscribe_newsletter_preview'
+
+

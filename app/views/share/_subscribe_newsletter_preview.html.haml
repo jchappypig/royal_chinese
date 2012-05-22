@@ -1,0 +1,28 @@
+%p Hi ___name___,
+%p
+%p Please checkout our newest post below!
+%p
+  \----------------
+%p
+  = simple_format(@content)
+%p
+  \----------------
+%p Remember, you can always checkout our site for other recent newsletters.
+%p
+  = link_to root_url, root_url
+
+%p What is more important? Come to us and enjoy the good meal our chief prepare for you!
+
+%br
+%p
+  = render partial: "share/unsubscribe"
+
+%p
+  Love,
+  %br
+  %strong
+    = company_full_name
+  %br
+  Address: #{company_address}
+  %br
+  Phone: #{company_phone}
