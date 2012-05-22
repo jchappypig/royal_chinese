@@ -7,22 +7,13 @@
   = simple_format(@content)
 %p
   \----------------
-%p Remember, you can always checkout our site for other recent newsletters.
-%p
-  = link_to root_url, root_url
+%p Remember, you can always checkout our website #{link_to root_url, root_url} for other recent newsletters.
 
 %p What is more important? Come to us and enjoy the good meal our chief prepare for you!
 
 %br
 %p
-  = render partial: "share/unsubscribe"
+  = render 'share/unsubscribe'
 
 %p
-  Love,
-  %br
-  %strong
-    = company_full_name
-  %br
-  Address: #{company_address}
-  %br
-  Phone: #{company_phone}
+  = render 'share/company_signature'

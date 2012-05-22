@@ -44,7 +44,7 @@ class FollowersController < ApplicationController
 
   def create
     @follower = Follower.new(params[:follower])
-    CustomerMailer.thank_you_subscribing(@follower).deliver if @follower.save
+    CustomerMailer.delay.thank_you_subscribing(@follower).deliver if @follower.save
 
     respond_to do |format|
       format.js

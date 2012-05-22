@@ -59,18 +59,20 @@ describe FollowersController do
 
       describe "create" do
         it "should create follower and send follower thank you letter if valid" do
-          Follower.count.should == 0
           follower = Factory.build(:follower)
+
+          delayed_job = mock
+          mailer_job = mock
+          mailer_job.should_receive(:deliver)
+          delayed_job.should_receive(:thank_you_subscribing).and_return(mailer_job)
+          CustomerMailer.stub(:delay).and_return(delayed_job)
+
+          Follower.count.should == 0
+
           post :subscribe, follower: follower.attributes, format: 'js'
+
           Follower.count.should == 1
-
           response.should render_template :subscribe
-
-          should have_sent_email.from('royal_chinese@hotmail.com')
-          should have_sent_email.to(follower.email)
-          should have_sent_email.with_subject('Thank you for subscribing')
-          should have_sent_email.with_body(/#{follower.name}/)
-          should have_sent_email.with_body(/Thank you for subscribing/)
         end
 
         it "should not create follower if invalid" do

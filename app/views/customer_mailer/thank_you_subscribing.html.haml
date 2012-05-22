@@ -1,12 +1,12 @@
 %p Hi #{@follower.name}
 %p
-  Thank you for subscribing newsletters from Royal Chinese Restaurant.
+%p Thank you for subscribing newsletters from #{@company_full_name}.
+%p Congratulations! Now you can received the first hand information from us about our latest promotion.
+%p Remember, you can always visit our website #{link_to root_url, root_url} to learn more about us.
+%p What is more important? Come to us and enjoy the good meal our chief prepare for you!
+%br
 %p
-  Congratulations! Now you can received the first hand information from us about our latest promotion.
+  = render 'share/unsubscribe'
+
 %p
-  Remember, you can always visit our website #{link_to root_url, root_url} to learn more about us.
-
-= render partial: "share/unsubscribe"
-
-%p Cheers,
-%p = company_full_name
+  = render 'share/company_signature'
