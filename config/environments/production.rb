@@ -77,4 +77,6 @@ RoyalChinese::Application.configure do
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
       }
   }
+
+  config.action_controller.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
 end
