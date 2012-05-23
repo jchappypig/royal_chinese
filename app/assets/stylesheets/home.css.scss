@@ -1,6 +1,16 @@
 @import 'compass/css3/images';
 @import 'compass/css3/box-shadow';
 
+.gallery_1, .gallery_2 {
+  width: 940px;
+  height: 178px;
+  background: image-url('gallery/gallery.jpg') no-repeat;
+}
+
+.gallery_2 {
+  background-position: 0 -179px;
+}
+
 $home-layout:smart;
 @import 'home/*.png';
 
@@ -14,13 +24,6 @@ $home-layout:smart;
 .flag { @include home-sprite(flag); }
 .pot { @include home-sprite(pot); }
 .newsletter_tag { @include home-sprite(newsletter_tag); }
-.gallery_1 { @include home-sprite(gallery_1); }
-.gallery_2 { @include home-sprite(gallery_2); }
-
-.gallery_1, .gallery_2 {
-  width: 940px;
-  height: 178px;
-}
 
 .newsletter_tag {
   display: inline-block;

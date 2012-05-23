@@ -1,5 +1,6 @@
 @import 'base.css.scss';
 @import 'compass/layout/sticky-footer';
+@import 'compass/css3/images';
 
 body {
   background-color: $bg-color-dark;
@@ -167,3 +168,11 @@ abbr[title='required'] {
   @include opacity(0.8);
   color: $dark-scene-bg-color-dark;
 }
+
+@import 'logo/*.png';
+
+.logo { @include logo-sprite(logo); }
+.logo_small { @include logo-sprite(logo_small); }
+
+.logo { width: 200px; height: 54px; }
+.logo_small { width: 170px; height: 46px; }
