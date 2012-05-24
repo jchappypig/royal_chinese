@@ -32,6 +32,8 @@ gem 'sendgrid'
 gem 'bootstrap-will_paginate'
 gem 'rack-pjax'
 gem 'dalli'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false

@@ -22,3 +22,6 @@ doc/
 .DS_Store
 .idea
 public/assets/
+
+solr/data
+solr/pids
