@@ -1,15 +1,18 @@
-- if controller.controller_name == 'followers' && controller.action_name == 'new'
-  - current_active_menu = 'home'
+- if controller.controller_name == 'home' && controller.action_name == 'our_location'
+  - current_active_menu = 'our_location'
 - elsif controller.controller_name == 'home' && controller.action_name == 'our_menu'
   - current_active_menu = 'our_menu'
+- elsif controller.controller_name == 'followers' && controller.action_name == 'new'
+  - current_active_menu = 'home'
 - else
-  - current_active_menu = 'our_location'
+  - current_active_menu = 'admin'
 
 .row
   .navbar
     .navbar-inner
       .container.title
-        .logo.left
+        %a{href: "#{root_path}"}
+          .logo.left
         %ul.nav.cap.pull-right
           %li{class: "#{current_active_menu == 'home'? 'active': ''}"}
             = link_to "Home", root_path
@@ -24,7 +27,7 @@
           - if user_signed_in?
             .divider
               |
-            %li
+            %li{class: "#{current_active_menu == 'admin'? 'active': ''}"}
               = link_to "Admin", user_root_path
             .divider
               |
