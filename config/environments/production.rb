@@ -79,4 +79,5 @@ RoyalChinese::Application.configure do
   }
 
   ActiveSupport::Deprecation.silenced = true
+  config.cache_store = :dalli_store
 end

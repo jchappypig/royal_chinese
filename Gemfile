@@ -31,6 +31,7 @@ gem 'delayed_job_active_record'
 gem 'sendgrid'
 gem 'bootstrap-will_paginate'
 gem 'rack-pjax'
+gem 'dalli'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false

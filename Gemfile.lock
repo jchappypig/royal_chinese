@@ -77,6 +77,7 @@ GEM
     compass-rails (1.0.1)
       compass (~> 0.12.0)
     daemons (1.1.8)
+    dalli (2.0.5)
     delayed_job (3.0.1)
       activesupport (~> 3.0)
     delayed_job_active_record (0.3.2)
@@ -286,6 +287,7 @@ DEPENDENCIES
   client_side_validations (~> 3.2.0.beta.3)
   coffee-rails (~> 3.2.1)
   compass-rails
+  dalli
   delayed_job_active_record
   devise
   email_spec
