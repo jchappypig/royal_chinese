@@ -1,39 +1,42 @@
 - content_for :title, 'Post Details'
 
-.page-header
-  %h1 Post Details
-.row
-  .span5
-    %p
-      %strong.title Title:
-      = @post.title
-    %p
-      %strong.title Content:
-      .well
-        = simple_format(@post.content)
-    %p
-      %b Is valid:
-      = @post.is_valid
+.admin{'data-pjax-container' => ''}
+  .page-header
+    %h1 Post Details
+  .row
+    .span5
+      %p
+        %strong.title Title:
+        = @post.title
+      %p
+        %strong.title Content:
+        .well
+          = simple_format(@post.content)
+      %p
+        %b Is valid:
+        = @post.is_valid
 
-    = link_to 'Edit', edit_post_path(@post)
-    \|
-    = link_to 'Back', posts_path
-    \|
-    = link_to 'New Post', new_post_path
+      = link_to 'Edit', edit_post_path(@post)
+      .divider
+        \|
+      = link_to 'Back', posts_path
+      .divider
+        \|
+      = link_to 'New Post', new_post_path
 
-    %p
-      = simple_form_for @post, url: broadcast_post_path(@post) do  |f|
-        .actions
-          = f.button :submit, 'Broadcast', disable_with: 'Sending...'
+      %p
+        = simple_form_for @post, url: broadcast_post_path(@post) do  |f|
+          .actions
+            = f.button :submit, 'Broadcast', disable_with: 'Sending...'
 
-  .span6.broadcast_preview.right
-    %h3.title Broadcast Preview
+    .span6.broadcast_preview.right
+      %h3.title Broadcast Preview
 
-    .mt10
-    - @content = @post.content
-    - @company_full_name = company_full_name
-    - @company_address = company_address
-    - @company_phone = company_phone
-    = render 'share/subscribe_newsletter_preview'
+      .mt10
+      - @content = @post.content
+      - @company_full_name = company_full_name
+      - @company_address = company_address
+      - @company_phone = company_phone
+      = render 'share/subscribe_newsletter_preview'
 
 

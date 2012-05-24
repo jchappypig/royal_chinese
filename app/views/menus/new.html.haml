@@ -1,8 +1,9 @@
 - content_for :title, 'New Menu'
 
-.page-header
-  %h1 New menu
+.admin{'data-pjax-container' => ''}
+  .page-header
+    %h1 New menu
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Back', menus_path
+  = link_to 'Back', menus_path

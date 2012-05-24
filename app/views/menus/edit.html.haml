@@ -1,10 +1,11 @@
 - content_for :title, 'Edit Menu'
 
-.page-header
-  %h1 Editing menu
+.admin{'data-pjax-container' => ''}
+  .page-header
+    %h1 Editing menu
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @menu
-\|
-= link_to 'Back', menus_path
+  = link_to 'Show', @menu
+  \|
+  = link_to 'Back', menus_path

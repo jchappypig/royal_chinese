@@ -1,27 +1,30 @@
 - content_for :title, 'Menu Details'
 
-.page-header
-  %h1 Menu Details
-%p
-  %strong.title Name:
-  = @menu.name
-%p
-  = image_tag @menu.image.url(:large)
-%p
-  %strong.title Category:
-  = @menu.category
-%p
-  %strong.title Price:
-  = @menu.price
-%p
-  %strong.title Dish type:
-  = @menu.dish_type
-%p
-  %strong.title Is vegetarian:
-  = @menu.is_vegetarian
+.admin{'data-pjax-container' => ''}
+  .page-header
+    %h1 Menu Details
+  %p
+    %strong.title Name:
+    = @menu.name
+  %p
+    = image_tag @menu.image.url(:large)
+  %p
+    %strong.title Category:
+    = @menu.category
+  %p
+    %strong.title Price:
+    = @menu.price
+  %p
+    %strong.title Dish type:
+    = @menu.dish_type
+  %p
+    %strong.title Is vegetarian:
+    = @menu.is_vegetarian
 
-= link_to 'Edit', edit_menu_path(@menu)
-\|
-= link_to 'Back', menus_path
-\|
-= link_to 'New Menu', new_menu_path
+  = link_to 'Edit', edit_menu_path(@menu)
+  .divider
+    \|
+  = link_to 'Back', menus_path
+  .divider
+    \|
+  = link_to 'New Menu', new_menu_path

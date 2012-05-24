@@ -1,10 +1,10 @@
 - content_for :title, 'Listing Followers'
-
-.page-header
-  %h1 Listing followers
-- if @followers.any?
-  = table_for(@followers) do  |table|
-    = table.data :actions => [:destroy]
-  = will_paginate @followers
-- else
-  %p Sorry, no followers found.
+.admin{"data-pjax-container" => ""}
+  .page-header
+    %h1 Listing followers
+  - if @followers.any?
+    = table_for(@followers) do  |table|
+      = table.data :actions => [:destroy]
+    = will_paginate @followers
+  - else
+    %p Sorry, no followers found.

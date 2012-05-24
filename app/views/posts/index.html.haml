@@ -1,16 +1,17 @@
 - content_for :title, 'Listing Posts'
 
-.page-header
-  %h1 Listing posts
-- unless @posts.blank?
-  = table_for(@posts) do  |table|
-    = table.data  actions: :all do
-      - table.cell(:title)
-      - table.cell(:content)
-      - table.cell(:is_valid)
-      - table.cell(:updated_at)
-  = will_paginate @followers
-- else
-  %p Sorry, no posts found.
-%br
-= link_to 'New Post', new_post_path
+.admin{'data-pjax-container' => ''}
+  .page-header
+    %h1 Listing posts
+  - unless @posts.blank?
+    = table_for(@posts) do  |table|
+      = table.data  actions: :all do
+        - table.cell(:title)
+        - table.cell(:content)
+        - table.cell(:is_valid)
+        - table.cell(:updated_at)
+    = will_paginate @followers
+  - else
+    %p Sorry, no posts found.
+  %br
+  = link_to 'New Post', new_post_path

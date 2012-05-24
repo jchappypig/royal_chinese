@@ -15,3 +15,8 @@
   @include border-corner-radius(bottom, right, 30px);
   padding: 10px 20px 20px 20px;
 }
+
+.divider {
+  display: inline-block;
+  margin: 0 5px;
+}
