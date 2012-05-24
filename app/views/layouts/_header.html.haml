@@ -27,8 +27,15 @@
           - if user_signed_in?
             .divider
               |
-            %li{class: "#{current_active_menu == 'admin'? 'active': ''}"}
-              = link_to "Admin", user_root_path
+            %li.dropdown{class: "#{current_active_menu == 'admin'? 'active': ''}"}
+              %a.data-toggle{href: '#', 'data-toggle' => "dropdown"}Admin
+              %ul.dropdown-menu
+                %li
+                  = link_to 'Menus', menus_path
+                %li
+                  = link_to 'Posts', posts_path
+                %li
+                  = link_to 'Followers', followers_path
             .divider
               |
             %li

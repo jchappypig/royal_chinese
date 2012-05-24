@@ -32,7 +32,7 @@ body {
   .navbar{
     margin-bottom: 10px;
     .navbar-inner .container {
-      ul {
+      .nav {
         margin-top: $logo-height - 15px;
 
         a {
@@ -153,11 +153,6 @@ abbr[title='required'] {
 .nav > li > a{
   font-family: $title-font-family;
   font-size: 1.2em;
-
-  &:hover {
-    text-decoration: none;
-    background-color: $dark-scene-bg-color-light;
-  }
 }
 
 .overflow-auto{
@@ -176,3 +171,8 @@ abbr[title='required'] {
 
 .logo { width: 200px; height: 54px; }
 .logo_small { width: 170px; height: 46px; }
+
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+  background-color: $dark-scene-bg-color-light;
+  color: $accent-color;
+}
