@@ -160,6 +160,7 @@ describe FollowersController do
         get :search, page: page, query: query
 
         assigns(:followers).should == search_results
+        response.should render_template :index
       end
     end
 

@@ -7,6 +7,7 @@ class MenusController < ApplicationController
 
   def search
     @menus = Search::MenuSearch.execute(params[:query], params[:page]).results
+    render :index
   end
 
   def show

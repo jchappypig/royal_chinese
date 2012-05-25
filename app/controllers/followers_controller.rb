@@ -7,6 +7,7 @@ class FollowersController < ApplicationController
 
   def search
     @followers = Search::FollowerSearch.execute(params[:query], params[:page]).results
+    render :index
   end
 
   def new

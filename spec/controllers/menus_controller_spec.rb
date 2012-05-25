@@ -139,9 +139,10 @@ describe MenusController do
         search_collections.should_receive(:results).and_return(search_results)
         Search::MenuSearch.should_receive(:execute).with(query, page).and_return(search_collections)
 
-        get :execute, page: page, query: query
+        get :search, page: page, query: query
 
         assigns(:menus).should == search_results
+        response.should render_template :index
       end
     end
   end

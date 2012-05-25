@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def search
     @posts = Search::PostSearch.execute(params[:query], params[:page]).results
+    render :index
   end
 
   def show

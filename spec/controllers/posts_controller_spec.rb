@@ -152,6 +152,7 @@ describe PostsController do
         get :search, page: page, query: query
 
         assigns(:posts).should == search_results
+        response.should render_template :index
       end
     end
   end
