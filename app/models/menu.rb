@@ -16,4 +16,8 @@ class Menu < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
   has_many :favorites
+
+  searchable do
+    text :name, :category, :dish_type
+  end
 end

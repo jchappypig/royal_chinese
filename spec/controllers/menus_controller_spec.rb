@@ -25,6 +25,9 @@ describe MenusController do
 
       delete :destroy, id: menu
       should_deny_access
+
+      get :search
+      should_deny_access
     end
 
     describe "GET 'show'" do
@@ -123,6 +126,22 @@ describe MenusController do
         Menu.count.should == 0
 
         response.should redirect_to menus_path
+      end
+    end
+
+    describe "GET 'search'" do
+      it "should search menus" do
+        page = '1'
+        query = 'Fish'
+
+        search_collections = mock
+        search_results = mock
+        search_collections.should_receive(:results).and_return(search_results)
+        Search::MenuSearch.should_receive(:search).with(query, page).and_return(search_collections)
+
+        get :search, page: page, query: query
+
+        assigns(:menus).should == search_results
       end
     end
   end

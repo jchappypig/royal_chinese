@@ -12,6 +12,7 @@ RoyalChinese::Application.routes.draw do
     resources :favorites, only: [:create]
     collection do
       get 'download'
+      get 'search'
     end
   end
   resources :followers, only: [:index, :destroy] do

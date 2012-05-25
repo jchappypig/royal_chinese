@@ -47,4 +47,8 @@ class MenusController < ApplicationController
   def download
     send_file("#{Rails.root}/app/assets/images/test.pdf", filename: 'royal_chinese_menu.pdf', type: 'application/pdf')
   end
+
+  def search
+    @menus = Search::MenuSearch.search(params[:query], params[:page]).results
+  end
 end

@@ -1,0 +1,22 @@
+- content_for :title, 'Listing Menus'
+
+.admin{'data-pjax-container' => ''}
+  .align_with_title
+    = form_tag search_menus_path, method: :get, html: { class: 'form-search'} do
+      = text_field_tag 'query', '', class: 'input-medium search-query'
+      = submit_tag 'Search', class: 'btn'
+  .page-header
+    %h1 Listing menus
+  - unless @menus.blank?
+    = table_for(@menus) do |table|
+      = table.data  :actions => :all do
+        - table.cell(:name)
+        - table.cell(:category)
+        - table.cell(:price)
+        - table.cell(:is_vegetarian)
+        - table.cell(:dish_type)
+    = will_paginate @menus
+  - else
+    %p Sorry, no menus found.
+  %br
+  = link_to 'New Menu', new_menu_path
