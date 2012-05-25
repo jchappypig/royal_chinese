@@ -34,6 +34,7 @@ gem 'rack-pjax'
 gem 'dalli'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+gem 'progress_bar'
 
 group :test do
   gem 'turn', '~> 0.8.3', :require => false

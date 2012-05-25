@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.paginate(page: params[:page])
   end
 
+  def search
+    @posts = Search::PostSearch.execute(params[:query], params[:page]).results
+  end
+
   def show
     @post = Post.find(params[:id])
   end

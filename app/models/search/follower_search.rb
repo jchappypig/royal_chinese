@@ -1,9 +1,9 @@
 module Search
-  class MenuSearch
+  class FollowerSearch
     def self.execute(query, page = nil)
-      Menu.search do
+      Follower.search do
         fulltext query do
-          boost_fields name: 2.0
+          boost_fields email: 2.0
         end
         paginate page: page, per_page: 10
       end

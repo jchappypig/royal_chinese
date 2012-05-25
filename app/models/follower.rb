@@ -5,4 +5,8 @@ class Follower < ActiveRecord::Base
   def self.find_by_email_ignore_case(email)
     Follower.where("LOWER(email) = ?", email.to_s.downcase).first
   end
+
+  searchable do
+    text :email, :name
+  end
 end

@@ -137,9 +137,9 @@ describe MenusController do
         search_collections = mock
         search_results = mock
         search_collections.should_receive(:results).and_return(search_results)
-        Search::MenuSearch.should_receive(:search).with(query, page).and_return(search_collections)
+        Search::MenuSearch.should_receive(:execute).with(query, page).and_return(search_collections)
 
-        get :search, page: page, query: query
+        get :execute, page: page, query: query
 
         assigns(:menus).should == search_results
       end

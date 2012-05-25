@@ -4,6 +4,9 @@ RoyalChinese::Application.routes.draw do
     member do
       put 'broadcast'
     end
+    collection do
+      get 'search'
+    end
   end
 
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
@@ -20,6 +23,7 @@ RoyalChinese::Application.routes.draw do
       post 'subscribe'
       get 'unsubscribing'
       post 'unsubscribe'
+      get 'search'
     end
   end
 

@@ -13,6 +13,9 @@ describe FollowersController do
       follower = Factory(:follower)
       delete :destroy, id: follower
       should_deny_access
+
+      get :search
+      should_deny_access
     end
 
     describe "GET 'new'" do
@@ -141,6 +144,22 @@ describe FollowersController do
         Follower.count.should == 0
 
         response.should redirect_to followers_path
+      end
+    end
+
+    describe "GET 'search'" do
+      it "should search followers" do
+        page = '1'
+        query = 'jchappypig@hotmail.com'
+
+        search_collections = mock
+        search_results = mock
+        search_collections.should_receive(:results).and_return(search_results)
+        Search::FollowerSearch.should_receive(:execute).with(query, page).and_return(search_collections)
+
+        get :search, page: page, query: query
+
+        assigns(:followers).should == search_results
       end
     end
 

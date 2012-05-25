@@ -2,9 +2,7 @@
 
 .admin{'data-pjax-container' => ''}
   .align_with_title
-    = form_tag search_menus_path, method: :get, html: { class: 'form-search'} do
-      = text_field_tag 'query', '', class: 'input-medium search-query'
-      = submit_tag 'Search', class: 'btn'
+    = render partial: '/search_form', locals: {path: search_menus_path}
   .page-header
     %h1 Listing menus
   - unless @menus.blank?

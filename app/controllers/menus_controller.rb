@@ -5,6 +5,10 @@ class MenusController < ApplicationController
     @menus = Menu.paginate(page: params[:page])
   end
 
+  def search
+    @menus = Search::MenuSearch.execute(params[:query], params[:page]).results
+  end
+
   def show
     @menu = Menu.find(params[:id])
   end
@@ -46,9 +50,5 @@ class MenusController < ApplicationController
 
   def download
     send_file("#{Rails.root}/app/assets/images/test.pdf", filename: 'royal_chinese_menu.pdf', type: 'application/pdf')
-  end
-
-  def search
-    @menus = Search::MenuSearch.search(params[:query], params[:page]).results
   end
 end

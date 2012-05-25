@@ -28,6 +28,9 @@ describe PostsController do
 
       post :broadcast, id: postage
       should_deny_access
+
+      get :search
+      should_deny_access
     end
   end
 
@@ -133,6 +136,22 @@ describe PostsController do
         post :broadcast, id: postage
         flash[:notice].should == 'Post is being emailed to subscribing customers.'
         response.should redirect_to post_path(postage)
+      end
+    end
+
+    describe "GET 'search'" do
+      it "should search posts" do
+        page = '1'
+        query = 'Half'
+
+        search_collections = mock
+        search_results = mock
+        search_collections.should_receive(:results).and_return(search_results)
+        Search::PostSearch.should_receive(:execute).with(query, page).and_return(search_collections)
+
+        get :search, page: page, query: query
+
+        assigns(:posts).should == search_results
       end
     end
   end

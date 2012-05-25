@@ -1,0 +1,12 @@
+- content_for :title, 'Listing Followers'
+.admin{"data-pjax-container" => ""}
+  .align_with_title
+    = render partial: '/search_form', locals: {path: search_followers_path}
+  .page-header
+    %h1 Listing followers
+  - if @followers.any?
+    = table_for(@followers) do  |table|
+      = table.data :actions => [:destroy]
+    = will_paginate @followers
+  - else
+    %p Sorry, no followers found.

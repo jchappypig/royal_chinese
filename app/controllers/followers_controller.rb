@@ -5,6 +5,10 @@ class FollowersController < ApplicationController
     @followers = Follower.paginate(page: params[:page])
   end
 
+  def search
+    @followers = Search::FollowerSearch.execute(params[:query], params[:page]).results
+  end
+
   def new
     @title = 'Home'
     @follower = Follower.new

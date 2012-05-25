@@ -1,9 +1,9 @@
 module Search
-  class MenuSearch
+  class PostSearch
     def self.execute(query, page = nil)
-      Menu.search do
+      Post.search do
         fulltext query do
-          boost_fields name: 2.0
+          boost_fields title: 2.0
         end
         paginate page: page, per_page: 10
       end
