@@ -171,13 +171,16 @@ abbr[title='required'] {
 
 .logo { width: 200px; height: 54px; }
 .logo_small { width: 170px; height: 46px; }
+.align_with_title {
+  float: right;
+  position: relative;
+}
+
+.nav-tabs .open .dropdown-toggle, .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover {
+  background-color: transparent;
+}
 
 .dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
   background-color: $dark-scene-bg-color-light;
   color: $accent-color;
-}
-
-.align_with_title {
-  float: right;
-  position: relative;
 }
