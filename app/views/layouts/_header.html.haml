@@ -44,7 +44,9 @@
 .container
   - unless alert.nil?
     .alert.alert-error
+      %button.close{"data-dismiss" => "alert"} ×
       = alert
   - unless notice.nil?
     .alert.alert-success
+      %button.close{"data-dismiss" => "alert"} ×
       = notice
