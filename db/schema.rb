@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20120516061052) do
     t.string   "category"
     t.float    "price"
     t.string   "dish_type",          :default => "Stir Fried"
-    t.boolean  "is_vegetarian"
+    t.boolean  "is_vegetarian",      :default => false
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
     t.string   "image_file_name"

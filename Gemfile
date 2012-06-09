@@ -26,7 +26,7 @@ gem 'paperclip', '~> 2.7.0'
 gem 'aws-sdk'
 gem 'aws-s3'
 gem 'gmaps4rails'
-gem 'email_validator', :require => 'email_validator/strict'
+gem 'email_validator', require: 'email_validator/strict'
 gem 'delayed_job_active_record'
 gem 'sendgrid'
 gem 'bootstrap-will_paginate'
@@ -37,18 +37,18 @@ gem 'sunspot_solr'
 gem 'progress_bar'
 
 group :test do
-  gem 'turn', '~> 0.8.3', :require => false
+  gem 'turn', '~> 0.8.3', require: false
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'shoulda'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'email_spec'
   gem 'spork'
   gem 'guard-spork'
   gem 'guard-rspec'
-  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'rb-fsevent', '~> 0.9.1'
   gem 'growl'
 end
 
